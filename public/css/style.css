@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+.nav-btn{
+    padding: 1rem;
+}
+.nav-btn a{
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+.carousel slide{
+   
+    background: black;
+    
+}
+.carousel img{
+    width: 100%;
+    height: 400px;
+    
+   
+}
+.info{
+  
+    /* margin-top: 1rem; */
+    width: 100%;
+    height: 500px;
+    background-color: gray;
+}
+.service-form{
+     /* margin-top: 1rem; */
+     width: 100%;
+     height: 500px;
+     background-color: rgb(216, 216, 216);
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+}
+.service-form-message{
+    background: rgb(168, 166, 166);
+}
+.service-form-field{
+    background: white;
+}
+.contact{
+    width: 100%;
+    height: 300px;
+    background: hotpink;
+}
+.footer{
+     width: 100%;
+     height: 300px;
+     background:brown;
+}
