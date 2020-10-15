@@ -7,20 +7,30 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 .logo{
     margin: 0.5rem;
-    cursor: pointer;
+   cursor: pointer;
+   padding: 0;
 }
 .logo a{
-    text-decoration: none;
+    text-decoration: none;   
+}
+.logo-word{
+    width: 250px;
 }
 h1 {
     font-family: 'Alfa Slab One', cursive;
     color: #39ca74;
+    padding: 0;
 }
 span {
     color: yellow;
+    
 }
 .nav-btn {
     margin: auto;
@@ -40,6 +50,9 @@ span {
     color: yellow;
     transition: all 0.5s;
     transform: scale(1.3);
+}
+.carousel{
+    margin-top: 90px;
 }
 .carousel slide{
     background: black;  
