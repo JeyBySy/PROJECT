@@ -60,6 +60,7 @@ span {
 .carousel img{
     width: 100%;
     height: 400px;  
+    /* background-repeat: no-repeat; */
 }
 .info{
   
@@ -71,8 +72,8 @@ span {
 .service-form{
      /* margin-top: 1rem; */
      width: 100%;
+     position: relative;
      height: 500px;
-     background-color: rgb(216, 216, 216);
      display: grid;
      grid-template-columns: 1fr 1fr;
 }
@@ -81,6 +82,10 @@ span {
 }
 .service-form-field{
     background: white;
+    margin: 2rem;
+}
+.service-form-field textarea{
+    resize: none;
 }
 .contact{
     width: 100%;

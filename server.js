@@ -18,7 +18,11 @@ app.use(bodyParser.json());
 app.use('/public',express.static(path.join(__dirname,'/public')));
 
 app.get('/',(req,res)=>{
-    res.render('index')
+    res.render('index',{layout: false})
+})
+
+app.post('/send',(req,res)=>{
+    res.send("submit")
 })
 
 app.listen(port, () => {
