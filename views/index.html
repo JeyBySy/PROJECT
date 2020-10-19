@@ -35,10 +35,10 @@
         </div>
         <div class="nav-btn">
             <a href="/">HOME</a>
-            <a href="shop.html">SHOP</a>
-            <a href="service.html">SERVICES</a>
-            <a href="contact.html">CONTACT US</a>
-            <a href="about.html">ABOUT US</a>
+            <a href="/shop">SHOP</a>
+            <a href="/service">SERVICES</a>
+            <a href="/contact">CONTACT US</a>
+            <a href="/about">ABOUT US</a>
         </div>
     </navbar>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -62,35 +62,41 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <div class="info">
-        df
-    </div>
-    <div class="service-form">
-        <div class="service-form-message">message</div>
-        <div class="service-form-field">
-            <h1 class="text-green">Do you need Cleaning Services</h1>
-            <form action="/send" method="POST">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <input type="email" class=" form-control" id="exampleInputPassword1" placeholder="Email Address">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
-                        placeholder="Message"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    <div class="wrapper">
+        <div class="info">
+            <!-- TEXT HERE -->
+        </div>
+        <div class="service-form">
+            <div class="service-form-message">message</div>
+            <div class="service-form-field">
+                <h1 class="text-green">Do you need Cleaning Services</h1>
+                <form action="/send" method="POST">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class=" form-control" id="exampleInputPassword1" placeholder="Email Address"
+                            name="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number"
+                            name="number">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Message"
+                            name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="contact">
+            <!-- TEXT HERE -->
+        </div>
+        <div class="footer">
+            <!-- TEXT HERE -->
         </div>
     </div>
-    <div class="contact">
-
-    </div>
-    <div class="footer"></div>
 
 </html>
