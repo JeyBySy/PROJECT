@@ -1,67 +1,84 @@
 .header{
     width: 100%;
-    height: 500px;
+    height: 150px;
+    margin-top: 92px;
+    background: gray;
+}
+h1,
+p{
+    text-align: center;
+}
+.header h1{
+    padding: 1rem;
 }
 .wrapper-about-info{
     width: 100%;
-    height: 500px;
+    height:auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 .about-info-picture{
     width: 100%;
-    height: 500px;
+    
     background: rgb(201, 138, 75);
     }
 .about-info-message{
     width: 100%;
-    height: 500px;
-    background: blue;
+
+    /* background: blue; */
+}
+.about-info-message p{
+    text-align: center;  
+    font-size: 20px;
+    padding: 2rem;
+    height: 100%;
 }
 .about-contact-top{
     width: 100%;
     height: 250px;
     background: gray;
 }
-.wrapper-about-MVD{
+.about-contact-top {
+    text-align: center;
+}
+.wrapper-about-MVQ{
     width: 100%;
     height: 500px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-.mission{
+.mission,
+.vision,
+.quality-policy {
     width: 100%;
     height: 500px;
-    background: hotpink;
-}
-.vision{
-    width: 100%;
-    height: 500px;
-    background: rgb(168, 45, 106);
-}
-.data-policy{
-    width: 100%;
-    height: 500px;
-    background: rgb(54, 3, 29);
+    padding: 2rem;
+    /* background: hotpink; */
 }
 .wrapper-management {
     width: 100%;
-    height: 500px;
-    
+    height: auto;
      display: grid;
      grid-template-rows: 1fr 1fr;
 }
 .management-ceo{
     width: 100%;
-    height: 500px;
-    background: rgb(0, 0, 0);
+    height: auto;
+    background: rgba(0, 0, 0, 0.219);
+
+}
+.management-ceo img{
+    width: 30%;
+    height: 60%;
+    
 }
 .management-employee{
     width: 100%;
     height: 500px;
-    background: rgb(27, 11, 4);
+    background: rgba(31, 31, 31, 0.219);
 }
 .about-contact-bot{
     width: 100%;
-    height: 500px;
+    height: 200px;
+    background: blue;
 }
