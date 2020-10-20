@@ -1,0 +1,16 @@
+.header {
+    width: 100%;
+    height: 500px;
+    margin-top: 92px;
+    background: gray;
+}
+.wrapper-service-offer{
+    width: 100%;
+    height: 500px;
+    background: gray;
+}
+.service-contact{
+     width: 100%;
+     height: 500px;
+     background: rgb(85, 38, 38);
+}

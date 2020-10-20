@@ -28,7 +28,7 @@ app.get('/shop',(req,res)=>{
 })
 
 //Rendering services.html
-app.get('/service',(req,res)=>{
+app.get('/services',(req,res)=>{
     res.render('service',{layout: false})
 })
 

@@ -1,0 +1,67 @@
+.header{
+    width: 100%;
+    height: 500px;
+}
+.wrapper-about-info{
+    width: 100%;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.about-info-picture{
+    width: 100%;
+    height: 500px;
+    background: rgb(201, 138, 75);
+    }
+.about-info-message{
+    width: 100%;
+    height: 500px;
+    background: blue;
+}
+.about-contact-top{
+    width: 100%;
+    height: 250px;
+    background: gray;
+}
+.wrapper-about-MVD{
+    width: 100%;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.mission{
+    width: 100%;
+    height: 500px;
+    background: hotpink;
+}
+.vision{
+    width: 100%;
+    height: 500px;
+    background: rgb(168, 45, 106);
+}
+.data-policy{
+    width: 100%;
+    height: 500px;
+    background: rgb(54, 3, 29);
+}
+.wrapper-management {
+    width: 100%;
+    height: 500px;
+    
+     display: grid;
+     grid-template-rows: 1fr 1fr;
+}
+.management-ceo{
+    width: 100%;
+    height: 500px;
+    background: rgb(0, 0, 0);
+}
+.management-employee{
+    width: 100%;
+    height: 500px;
+    background: rgb(27, 11, 4);
+}
+.about-contact-bot{
+    width: 100%;
+    height: 500px;
+}
