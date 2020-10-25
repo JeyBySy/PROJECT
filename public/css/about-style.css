@@ -4,9 +4,21 @@
     margin-top: 92px;
     background: gray;
 }
-h1,
-p{
+h1{
     text-align: center;
+}
+p{
+    font-family: "Open Sans",
+    Arial,
+    Helvetica,
+    sans-serif;
+    font-weight: 400;
+    letter-spacing: 0px;
+    font-style: normal;
+    opacity: 0.8;
+}
+spans{
+    color:rgb(2, 109, 2)
 }
 .header h1{
     padding: 1rem;
@@ -14,51 +26,76 @@ p{
 .wrapper-about-info{
     width: 100%;
     height:auto;
+    padding: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 .about-info-picture{
     width: 100%;
-    
-    background: rgb(201, 138, 75);
+    background: lime;
     }
 .about-info-message{
     width: 100%;
-
     /* background: blue; */
 }
 .about-info-message p{
-    text-align: center;  
-    font-size: 20px;
-    padding: 2rem;
+    text-align: start;  
+    font-size: medium;
+    padding:3rem;
     height: 100%;
 }
 .about-contact-top{
     width: 100%;
     height: 250px;
-    background: gray;
+    background: linear-gradient(180deg, #282828, #424242);
+    ;
 }
 .about-contact-top {
     text-align: center;
 }
 .wrapper-about-MVQ{
     width: 100%;
-    height: 500px;
+    height:auto;
     display: grid;
+    padding: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
 }
 .mission,
 .vision,
-.quality-policy {
+.quality-policy{
     width: 100%;
-    height: 500px;
-    padding: 2rem;
+    height: 550px;
+    padding: 60px;
+    border-width: 1px;
+    border-style: outset;
+    box-shadow: 0px 1px 5px 1px;
+    cursor: pointer;
+    font-size: larger;
     /* background: hotpink; */
 }
+.mission,
+.vision,
+.quality-policy p{
+    text-align: center;
+}
+.mission p:hover{
+    transition: all 0.6s;
+    transform: scale(1.1);
+}
+.vision p:hover {
+    transition: all 0.6s;
+    transform: scale(1.1);
+}
+.quality-policy p:hover {
+    transition: all 0.6s;
+    transform: scale(1.1);
+}
+
 .wrapper-management {
     width: 100%;
     height: auto;
      display: grid;
+     padding-top: 2rem;
      grid-template-rows: 1fr 1fr;
 }
 .management-ceo{
@@ -70,7 +107,7 @@ p{
 .management-ceo img{
     width: 30%;
     height: 60%;
-    
+   
 }
 .management-employee{
     width: 100%;

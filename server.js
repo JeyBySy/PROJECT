@@ -49,10 +49,10 @@ app.post('/send',(req,res)=>{
     <p>You have new contact request</p>
     <ul>
     <li>Name: ${req.body.name}</li>
-     <li>Name: ${req.body.email}</li>
-    <li>Name: ${req.body.number}</li>
+    <li>Email: ${req.body.email}</li>
+    <li>Mobile Number: ${req.body.number}</li>
     </ul>
-    <p>Name: ${req.body.message}</p>
+    <p>Message: ${req.body.message}</p>
     `;
 
     let transporter = nodemailer.createTransport({
@@ -81,8 +81,8 @@ app.post('/send',(req,res)=>{
  
   console.log("Message sent: %s", info.messageId);
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  res.render('index',{layout: false}); // {msg:'email sent'}
-  
+  res.redirect('/')
+  // res.render('index',{layout: false}); // {msg:'email sent'}
    });
 });
 
