@@ -3,12 +3,13 @@ const nodemailer = require('nodemailer')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser');
 const path = require('path')
+const mongoose = require('mongoose');
 const ejs = require('ejs');
 const { urlencoded } = require('body-parser');
 const { info } = require('console');
 const app = express();
-
 let port = 3000;
+mongoose.connect('mongodb://localhost/project', {useNewUrlParser: true,useUnifiedTopology: true })
 
 app.engine('html', exphbs());
 app.set('view engine','html');
@@ -19,6 +20,18 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 
 app.use('/public',express.static(path.join(__dirname,'/public')));
+
+const project = require('./models/model')
+mongoose.connect('mongodb://localhost/project', {useNewUrlParser: true});
+project.create({
+category:'janitorial supplies',
+name: 'SAMPLE',
+price: 100,
+picture: 'SAMPLE PICTURE',
+description: 'SAMPLE DESCRIPTION'
+}, (error, blogpost) =>{
+console.log(error,blogpost)
+})
 
 //Rendering index.html
 app.get('/',(req,res)=>{
