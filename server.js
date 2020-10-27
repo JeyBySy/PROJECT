@@ -12,7 +12,7 @@ let port = 3000;
 
 app.engine('html', exphbs());
 app.set('view engine','html');
- app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 
 app.use(bodyParser.urlencoded({extended:false}))
@@ -32,7 +32,7 @@ app.get('/confirm',(req,res)=>{
 //Rendering shop.html
 app.get('/shop',(req,res)=>{
     res.render('shop.ejs',{layout: false})
-    // res.redirect('shop')
+
 })
 
 //Rendering services.html
@@ -136,6 +136,6 @@ let transporter = nodemailer.createTransport({
    });
 })
 
-app.listen(port, () => {
+app.listen(port,() => {
     console.log("Success to 3000")
 })
