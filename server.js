@@ -37,7 +37,7 @@ app.get('/shop',(req,res)=>{
     res.render('shop.html',{layout: false})
 
 })
-
+//Rendering store.ejs
 app.get('/store',(req,res)=>{
     res.render('store.ejs',{layout: false})
 
