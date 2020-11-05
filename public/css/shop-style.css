@@ -1,0 +1,11 @@
+/* .navbar{
+    border-collapse: collapse;
+    position: fixed;
+} */
+.cont-shop-wrapper{
+    width: 100%;
+    height: auto;
+    background: green;
+    position: absolute;
+    top: 11.9%;
+}

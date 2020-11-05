@@ -25,15 +25,15 @@ spans{
 }
 .wrapper-about-info{
     width: 100%;
-    height:auto;
-    padding: 4rem;
+    height:610px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 .about-info-picture{
     width: 100%;
+    margin: 3rem;
     background: lime;
-    }
+}
 .about-info-message{
     width: 100%;
     /* background: blue; */
@@ -93,20 +93,19 @@ spans{
 
 .wrapper-management {
     width: 100%;
-    height: auto;
+    height: 100%;
      display: grid;
      padding-top: 2rem;
      grid-template-rows: 1fr 1fr;
 }
 .management-ceo{
     width: 100%;
-    height: auto;
+    height: 100%;
     background: rgba(0, 0, 0, 0.219);
-
 }
 .management-ceo img{
     width: 30%;
-    height: 60%;
+    height: 100%;
    
 }
 .management-employee{

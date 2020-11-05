@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <navbar class="navbar">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="logo">
             <div class="logo-word">
                 <a href="/">
@@ -36,14 +36,20 @@
                 </a>
             </div>
         </div>
-        <div class="nav-btn">
-            <a href="/">HOME</a>
-            <a href="/shop">SHOP</a>
-            <a href="/services">SERVICES</a>
-            <a href="/contact">CONTACT US</a>
-            <a href="/about">ABOUT US</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="nav-btn collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ml-auto">
+                <a href="/" class="nav-link">HOME</a>
+                <a href="/shop" class="nav-link">SHOP</a>
+                <a href="/services" class="nav-link">SERVICES</a>
+                <a href="/contact" class="nav-link">CONTACT US</a>
+                <a href="/about" class="nav-link">ABOUT US</a>
+            </ul>
         </div>
-    </navbar>
+
+    </nav>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

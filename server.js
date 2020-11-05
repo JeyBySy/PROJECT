@@ -7,9 +7,11 @@ const mongoose = require('mongoose');
 const ejs = require('ejs');
 const { urlencoded } = require('body-parser');
 const { info } = require('console');
+const { model } = require('./models/model');
 const app = express();
-let port = 3000;
+let port = 3001;
 mongoose.connect('mongodb://localhost/project', {useNewUrlParser: true,useUnifiedTopology: true })
+const project = require('./models/model')
 
 app.engine('html', exphbs());
 app.set('view engine','html');
@@ -20,18 +22,6 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 
 app.use('/public',express.static(path.join(__dirname,'/public')));
-
-const project = require('./models/model')
-mongoose.connect('mongodb://localhost/project', {useNewUrlParser: true});
-project.create({
-category:'janitorial supplies',
-name: 'SAMPLE',
-price: 100,
-picture: 'SAMPLE PICTURE',
-description: 'SAMPLE DESCRIPTION'
-}, (error, blogpost) =>{
-console.log(error,blogpost)
-})
 
 //Rendering index.html
 app.get('/',(req,res)=>{
@@ -44,7 +34,12 @@ app.get('/confirm',(req,res)=>{
 
 //Rendering shop.html
 app.get('/shop',(req,res)=>{
-    res.render('shop.ejs',{layout: false})
+    res.render('shop.html',{layout: false})
+
+})
+
+app.get('/store',(req,res)=>{
+    res.render('store.ejs',{layout: false})
 
 })
 

@@ -4,10 +4,11 @@
 }
 .navbar{
     /* background-color: #282828; */
+    padding: 0;
+    margin: 0;
     background: linear-gradient(180deg, #282828, #424242 );
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: auto;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
     width: 100%;
     position: fixed;
     top: 0;
@@ -15,11 +16,10 @@
     border-bottom:white;
     border-bottom-style: outset;
 }
-
 .logo{
-    margin: 0.3rem;
     padding-top: 0.5rem;
-   cursor: pointer;
+    cursor: pointer;
+    margin: 0.5rem;
 }
 .logo a{
     text-decoration: none;   
@@ -33,27 +33,24 @@ h1 {
     padding: 0;
 }
 span {
-    color: yellow;
-    
+    color: yellow; 
 }
-.nav-btn {
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+.nav-btn{
+    display: block;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
 }
-.nav-btn a {
-    text-decoration: none;
+.nav-btn a{
+    width: auto;
     text-align: center;
     margin-right: 1rem;
     color: white;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     cursor: pointer;
     /* background: green; */
 }
 .nav-btn a:hover{
-    color: yellow;
     transition: all 0.5s;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 .carousel{
     margin-top: 85px;
