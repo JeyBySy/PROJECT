@@ -6,13 +6,14 @@
     /* background-color: #282828; */
     padding: 0;
     margin: 0;
-    background: linear-gradient(180deg, #282828, #424242 );
+    /* background: linear-gradient(180deg, #282828, #424242 ); */
+    background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #282828), color-stop(1, #424242));
     /* display: grid;
     grid-template-columns: 1fr 1fr; */
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     border-bottom:white;
     border-bottom-style: outset;
 }
@@ -56,7 +57,7 @@ span {
     margin-top: 85px;
    width: 100%;
    position:fixed;
-  
+   z-index:0;
 }
 .carousel slide{
     background: black;  
@@ -82,24 +83,36 @@ span {
     width: 100%;
     height: 800px;
     border-color: black;
-    border-style: dotted;
 }
 .service-form{
-     /* margin-top: 1rem; */
-     width: 100%;
-     height: 500px;
-     display: grid;
-     grid-template-columns: 1fr 1fr;
-     background: rgb(255, 255, 255);
+    /* margin-top: 1rem; */
+    width: 100%;
+    height: 550px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #39ca74;
+    /* border-style: dotted; */
+}
+.service-form h2{
+   color:rgb(255, 255, 255);
+   font-size: 39px;
+   letter-spacing: -1px;
+   text-shadow: 1px 1px gray ;
+}
+.service-form h5 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    line-height: 50px;
+    letter-spacing: -1px;
 }
 .service-form-message{
     /* background: rgb(168, 166, 166); */
     border-color: black;
-    border-style: dotted;
+    margin: auto 0px auto 4rem;
+
 }
 .service-form-field{
-    background: white;
-    margin: 2rem;
+    margin: auto 4rem auto 0px;
 }
 .service-form-field textarea{
     resize: none;
@@ -107,10 +120,15 @@ span {
 .contact{
     width: 100%;
     height: 300px;
-    background: hotpink;
+    background: white;
 }
 .footer{
-     width: 100%;
-     height: 300px;
-     background:brown;
+    width: 100%;
+    height: 320px;
+    color:white;
+    background: #24272d;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #282828), color-stop(1, #424242)); */
+
 }

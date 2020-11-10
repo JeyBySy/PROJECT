@@ -42,13 +42,12 @@
         <div class="nav-btn collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav ml-auto">
                 <a href="/" class="nav-link">HOME</a>
-                <a href="/shop" class="nav-link">SHOP</a>
+                <a href="/store" class="nav-link">STORE</a>
                 <a href="/services" class="nav-link">SERVICES</a>
                 <a href="/contact" class="nav-link">CONTACT US</a>
                 <a href="/about" class="nav-link">ABOUT US</a>
             </ul>
         </div>
-
     </nav>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -71,6 +70,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!-- WRAPPER THAT HOLDS THE WHOLE CONTENT EXCEPT CAROUSEL -->
     <div class="wrapper">
         <div class="info">
             BEYLANDS Sales and Services Specialist is a company of sole proprietorship, owned and managed by Ms. Luciana
@@ -89,35 +89,62 @@
             Specialist prides itself with high quality, economical products and competitive pricing.
         </div>
         <div class="service-form">
-            <div class="service-form-message">message</div>
+            <div class="service-form-message">
+                <h2>Why choose Beylands for cleaning services?</h2>
+                <br>
+                cleaning
+                <br>
+                cleaning
+                <br>
+                cleaning
+                <br>
+                click here for more info
+
+            </div>
             <div class="service-form-field">
-                <h1 class="text-green">Do you need Cleaning Services?</h1>
+                <h2>Do you need Cleaning Services?</h2>
+                <h5>Need to clean but no time? Contact us</h5>
                 <form action="/send-service" method="POST">
                     <div class="form-group">
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Name" name="name">
+                            placeholder="Name" name="name" style="border-radius: 0;">
                     </div>
                     <div class="form-group">
                         <input type="email" class=" form-control" id="exampleInputPassword1" placeholder="Email Address"
-                            name="email">
+                            name="email" style="border-radius: 0;">
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Mobile Number"
-                            name="number">
+                            name="number" style="border-radius: 0;">
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Message"
-                            name="message"></textarea>
+                            name="message" style="border-radius: 0;"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
         <div class="contact">
-            <!-- TEXT HERE -->
+            Contact us at
         </div>
+        <!-- footer -->
         <div class="footer">
-            <!-- TEXT HERE -->
+            <div class="footer-left" style="margin: 1rem;">
+                <h4>About us</h4>
+                <br>
+                read more
+            </div>
+            <div class="footer-certificate" style="margin: 1rem;">
+                <h4>Certificates</h4>
+            </div>
+            <div class="footer-social" style="margin: 1rem;">
+                <h4>Follow our socials</h4>
+                <br>
+                <img src="/public/Image/facebook.png" alt="facebook"
+                    style="background: white; border-radius: 9rem; border-color: #24272d; width:60px; height:60px">
+            </div>
+
         </div>
     </div>
 

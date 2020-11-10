@@ -33,13 +33,13 @@ app.get('/confirm',(req,res)=>{
 })
 
 //Rendering shop.html
-app.get('/shop',(req,res)=>{
-    res.render('shop.html',{layout: false})
+app.get('/store',(req,res)=>{
+    res.render('store.html',{layout: false})
 
 })
 //Rendering store.ejs
-app.get('/store',(req,res)=>{
-    res.render('store.ejs',{layout: false})
+app.get('/shop',(req,res)=>{
+    res.render('shop.ejs',{layout: false})
 
 })
 
