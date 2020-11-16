@@ -17,18 +17,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script> -->
+    <!-- font title -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
+    <!-- end font tile -->
     <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
     <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-
-
     <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/index.css">
     <!-- <link rel="stylesheet" href="./css/stylesheet.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
     </body>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md">
         <div class="logo">
             <div class="logo-word">
                 <a href="/">
@@ -41,7 +44,7 @@
         </button>
         <div class="nav-btn collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav ml-auto">
-                <a href="/" class="nav-link">HOME</a>
+                <a href="/" class="nav-link"><span class="open">HOME</span></a>
                 <a href="/store" class="nav-link">STORE</a>
                 <a href="/services" class="nav-link">SERVICES</a>
                 <a href="/contact" class="nav-link">CONTACT US</a>
@@ -92,22 +95,21 @@
             <div class="service-form-message">
                 <h2>Why choose Beylands for cleaning services?</h2>
                 <br>
-                cleaning
+                <h4>Offers Professional cleaning</h4>
                 <br>
-                cleaning
+                <h4>Affordable price</h4>
                 <br>
-                cleaning
-                <br>
-                click here for more info
+                <a href="/services">Click here for more info</a>
+
 
             </div>
             <div class="service-form-field">
                 <h2>Do you need Cleaning Services?</h2>
-                <h5>Need to clean but no time? Contact us</h5>
-                <form action="/send-service" method="POST">
+                <h5>No time to clean up because of hectic schedule? Kindly contact us.</h5>
+                <form action="/send-service-confirmation" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Name" name="name" style="border-radius: 0;">
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name"
+                            style="border-radius: 0;">
                     </div>
                     <div class="form-group">
                         <input type="email" class=" form-control" id="exampleInputPassword1" placeholder="Email Address"
@@ -118,31 +120,52 @@
                             name="number" style="border-radius: 0;">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Message"
-                            name="message" style="border-radius: 0;"></textarea>
+                        <input type="text" class="form-control" id="exampleInputPassword1"
+                            placeholder="Address of Place to be Clean" name="address" style="border-radius: 0;">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                            placeholder="Package / Message" name="message" style="border-radius: 0;"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
+
         <div class="contact">
             Contact us at
         </div>
         <!-- footer -->
         <div class="footer">
-            <div class="footer-left" style="margin: 1rem;">
-                <h4>About us</h4>
-                <br>
-                read more
+            <div class="footer-left" style="margin: 2rem;">
+                <h5>ABOUT US</h5>
+                <hr>
+                <h5 style="color: rgba(255, 255, 255, 0.597);">Beylands stands for the first letter of the family’s name
+                    and last name, Bea, Erin,
+                    Ycel, Luciana, Ariane, Norberto Delos Santos. The business started as...<a href="/about"
+                        style="text-decoration: none;color: rgba(255, 255, 255, 0.597);">read
+                        more</a>
+                </h5>
             </div>
-            <div class="footer-certificate" style="margin: 1rem;">
-                <h4>Certificates</h4>
+            <div class="footer-social" style="margin: 2rem;">
+                <h5>SOCIAL</h5>
+                <hr>
+
+                <a href="https://web.facebook.com/beylandssales/">
+                    <img src="/public/Image/facebook.png" alt="facebook" style="width:40px; height:40px">
+                </a>
             </div>
-            <div class="footer-social" style="margin: 1rem;">
-                <h4>Follow our socials</h4>
+            <div class="footer-certificate" style="margin: 2rem;">
+                <h5>LICENSES AND PERMITS</h5>
+                <hr>
+                <img src="/public/Image/dti.png" alt="DTI" style="width:100px; height:100px">
+                <img src="/public/Image/proc.png" alt="Procuremnet Service" style="widows: 100px; height:100px">
+
+            </div>
+            <div class="footer-bottom">
+                <h1>BEY<span>LANDS</span></h1>
                 <br>
-                <img src="/public/Image/facebook.png" alt="facebook"
-                    style="background: white; border-radius: 9rem; border-color: #24272d; width:60px; height:60px">
+                © Copyright 2020 Beylands Sales and Service Specialist | All Rights Reserved
             </div>
 
         </div>

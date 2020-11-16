@@ -18,7 +18,10 @@
     </script> -->
     <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
     <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-
+    <!-- font title -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
+    <!-- end font tile -->
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/service-style.css">
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
@@ -26,7 +29,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md">
         <div class="logo">
             <div class="logo-word">
                 <a href="/">
@@ -40,25 +43,34 @@
         <div class="nav-btn collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav ml-auto">
                 <a href="/" class="nav-link">HOME</a>
-                <a href="/shop" class="nav-link">SHOP</a>
-                <a href="/services" class="nav-link">SERVICES</a>
+                <a href="/store" class="nav-link">STORE</a>
+                <a href="/services" class="nav-link"><span class="open">SERVICES</span></a>
                 <a href="/contact" class="nav-link">CONTACT US</a>
                 <a href="/about" class="nav-link">ABOUT US</a>
             </ul>
         </div>
 
     </nav>
-    <div class="header">
-        <!-- PICTURE HERE -->
-    </div>
+
     <div class="service-form">
-        <div class="service-form-message">message</div>
+        <div class="service-form-message">
+            <h2>Don't know what cleaning service to choose?</h2>
+            <br>
+            <h4>Offers Professional cleaning</h4>
+            <br>
+            <h4>Affordable price</h4>
+            <br>
+            <a href="#">
+                click here for more info
+            </a>
+
+        </div>
         <div class="service-form-field">
-            <h1 class="text-green">Do you need Cleaning Services?</h1>
-            <form action="/send" method="POST">
+            <h2>Do you need Cleaning Services?</h2>
+            <h5>No time to clean up because of hectic schedule? Kindly contact us.</h5>
+            <form action="/send-service-confirmation" method="POST">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Name" name="name">
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name">
                 </div>
                 <div class="form-group">
                     <input type="email" class=" form-control" id="exampleInputPassword1" placeholder="Email Address"
@@ -69,22 +81,208 @@
                         name="number">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Message"
-                        name="message"></textarea>
+                    <input type="text" class="form-control" id="exampleInputPassword1"
+                        placeholder="Address of Place to be Clean" name="address">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                        placeholder="Package / Message" name="message"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
-    <div class="wrapper-service-offer">
-        <!-- INSERT HERE -->
-    </div>
-    <div class="service-contact">
-        <!-- INSERT HERE -->
-    </div>
+    <div class="wrapper" id="packages">
+        <div class="content-offer">
+            <div class="content-offer-title">
+                <h2 style="margin: 2.5rem; font-size: 40px; color:#39ca74;
+                     font-family: 'Montserrat', sans-serif; ;letter-spacing: 1px; font-weight: 700;">
+                    OUR PRICING
+                </h2>
 
-    <div class="footer"></div>
+            </div>
+            <div class="content-offer-content">
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title"><strong>Package 1</strong></h5>
+                        </center>
+                        <center>
+                            <h6 class="card-title-price"><strong>₱ 450.00</strong></h5>
+                        </center>
+                        <br>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <li> Maximum 25 sq.m</li>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <li> Apartments / Studio Type Office / Condo-type Units</li>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <li> Approx. 1- 1.5 Hrs</li>
+                        </h6>
+                        <hr>
+                        <p class="card-text">
+                            <center>
+                                <h6><strong> Inclusions:</strong>
+                                    <ul>
+                                        <li><span>&#x2713</span>Furniture Dusting</li>
+                                        <li><span>&#x2713</span>Floor Sweeping</li>
+                                        <li><span>&#x2713</span>Floor Mopping</li>
+                                        <li><span>&#x2713</span>Vacuuming</li>
+                                        <li><span>&#x2713</span>CR cleaning</li>
+                                        <li><span class="wrong">&#x2717</span>Use of air freshener agents</li>
+                                        <li><span class="wrong">&#x2717</span>Wall spot cleaning</li>
+                                        <li><span class="wrong">&#x2717</span>Window cleaning</li>
+                                    </ul>
+                            </center>
+                            </h6>
+                        </p>
+                        <center>
+                            <button class="btn btn-outline-success">SELECT</button>
+                        </center>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title"><strong>Package 2</strong></h5>
+                        </center>
+                        <center>
+                            <h6 class="card-title-price"><strong>₱ 650.00</strong></h6>
+                        </center>
+                        <br>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <li> Maximum 25 sq.m</li>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <li> Apartments / Studio Type Office / Condo-type Units</li>
+                        </h6>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <li> Approx. 1.5-2 Hrs</li>
+                        </h6>
+                        <hr>
+                        <p class="card-text">
+                            <center>
+                                <h6><strong> Inclusions:</strong>
+                                    <ul>
+                                        <li><span>&#x2713</span>Furniture Dusting</li>
+                                        <li><span>&#x2713</span>Floor Sweeping</li>
+                                        <li><span>&#x2713</span>Floor Mopping</li>
+                                        <li><span>&#x2713</span>Vacuuming</li>
+                                        <li><span>&#x2713</span>CR cleaning</li>
+                                        <li><span>&#x2713</span>Use of air freshener agents</li>
+                                        <li><span class="wrong">&#x2717</span>Wall spot cleaning</li>
+                                        <li><span class="wrong">&#x2717</span>Window cleaning</li>
+                                    </ul>
+                            </center>
+                            </h6>
+                        </p>
+                        <center>
+                            <button class="btn btn-outline-success">SELECT</button>
+                        </center>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title"><strong>Deep cleaning / General Cleaning</strong></h5>
+                        </center>
+                        <center>
+                            <h6 class="card-title-price"><strong>₱ 25.00/sq.m</strong></h6>
+                        </center>
+                        <br>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <li> Residential/ Commercial Cleaning</li>
+                        </h6>
+                        <hr>
+                        <p class="card-text">
+                            <center>
+                                <h6><strong> Inclusions:</strong>
+                                    <ul>
+                                        <li><span>&#x2713</span>Furniture Dusting</li>
+                                        <li><span>&#x2713</span>Floor Sweeping</li>
+                                        <li><span>&#x2713</span>Floor Mopping</li>
+                                        <li><span>&#x2713</span>Vacuuming</li>
+                                        <li><span>&#x2713</span>CR cleaning</li>
+                                        <li><span>&#x2713</span>Use of air freshener agents</li>
+                                        <li><span>&#x2713</span>Wall spot cleaning</li>
+                                        <li><span>&#x2713</span>Window cleaning</li>
+                                    </ul>
+                            </center>
+                            </h6>
+                        </p>
+                        <br>
+                        <center>
+                            <button class="btn btn-outline-success">SELECT</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
 
-    <script src="public/js/app.js"></script>
+
+        </div>
+        <div class="wrapper-service-offer">
+            <br>
+            <h2 style="text-align: center; margin: 2rem; font-size: 40px; color:white;
+                     font-family: 'Montserrat', sans-serif; ;letter-spacing: 1px; font-weight: 700;">
+                WE ALSO OFFER
+            </h2>
+            <div class="wrapper-service-offer-content">
+                <h4>Disinfection/ Fumigation</h4>
+
+                <h4>Carpet Cleaning/ Shampooing</h4>
+
+                <h4>Vinyl Floor Waxing</h4>
+
+                <h4>Post Construction Cleaning</h4>
+
+                <h4>Odor Elimination</h4>
+
+                <h4>Grass cutting</h4>
+
+            </div>
+
+        </div>
+        <div class="service-contact">
+            <!-- INSERT HERE -->
+            contact-
+        </div>
+
+        <div class="footer">
+            <div class="footer-left" style="margin: 2rem;">
+                <h5>ABOUT US</h5>
+                <hr>
+                <h5 style="color: rgba(255, 255, 255, 0.597);">Beylands stands for the first letter of the family’s name
+                    and last name, Bea, Erin,
+                    Ycel, Luciana, Ariane, Norberto Delos Santos. The business started as...<a href="/about"
+                        style="text-decoration: none;color: rgba(255, 255, 255, 0.597);">read
+                        more</a>
+                </h5>
+            </div>
+            <div class="footer-social" style="margin: 2rem;">
+                <h5>SOCIAL</h5>
+                <hr>
+
+                <a href="https://web.facebook.com/beylandssales/">
+                    <img src="/public/Image/facebook.png" alt="facebook" style="width:40px; height:40px">
+                </a>
+            </div>
+            <div class="footer-certificate" style="margin: 2rem;">
+                <h5>LICENSES AND PERMITS</h5>
+                <hr>
+                <img src="/public/Image/dti.png" alt="DTI" style="width:100px; height:100px">
+                <img src="/public/Image/proc.png" alt="Procuremnet Service" style="widows: 100px; height:100px">
+
+            </div>
+            <div class="footer-bottoom">
+                <h1>BEY<span>LANDS</span></h1>
+                <br>
+                © Copyright 2020 Beylands Sales and Service Specialist | All Rights Reserved
+            </div>
+
+        </div>
+    </div>
+    <script src="/public/js/service.js"></script>
+</body>
 
 </html>

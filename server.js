@@ -67,6 +67,7 @@ app.post('/send-service-confirmation',(req,res)=>{
     <li>Name: ${req.body.name}</li>
     <li>Email: ${req.body.email}</li>
     <li>Mobile Number: ${req.body.number}</li>
+    <li>Address of Place to be Clean: ${req.body.address}</li>
     </ul>
     <p>Message: ${req.body.message}</p>
     `;
@@ -145,5 +146,5 @@ let transporter = nodemailer.createTransport({
 })
 
 app.listen(port,() => {
-    console.log("Success to 3000")
+    console.log("Success to 3001")
 })
