@@ -2,7 +2,7 @@
     width: 100%;
     height: 500px;
     margin-top: 6%;
-    background: gray;
+    background: white;
 }
 .wrapper {
     height: auto;
@@ -40,8 +40,11 @@
     /* background: rgb(168, 166, 166); */
     border-color: black;
     margin: auto 4rem auto 0px;
-   
     height: 90%;
+}
+.service-form-message img{
+    width: 33px;
+    height: 33px;
 }
 
 .service-form-field {
