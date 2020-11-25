@@ -1,25 +1,23 @@
 .header {
     width: 100%;
     height: 500px;
-    margin-top: 6%;
+   
     background: white;
 }
 .wrapper {
     height: auto;
     position: absolute;
-    top: 79%;
+    top: 12%;
 }
 
 .service-form {
-    margin-top: 6%;
     width: 100%;
     height: 550px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* background: #39ca74; */
     background:-webkit-gradient(linear, right top, left top, color-stop(1, #25da6e), color-stop(0, #39ca74));
-    position:fixed;
-    z-index: 0;
+
 }
 
 .service-form h2 {
@@ -53,4 +51,7 @@
 
 .service-form-field textarea {
     resize: none;
+}
+.footer{
+    margin-top: 50px;
 }

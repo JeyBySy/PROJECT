@@ -27,7 +27,43 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <!-- MODAL FOR VIEWING THE CART -->
+    <div class="modal fade" tabindex="1" role="dialog" id="addModal">
+        <div class="modal-dialog" style="max-width: 900px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">CART</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: black;">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-content" style="overflow-y: auto;">
+                        <div class="cart-row">
+                            <span class="cart-productName cart-header cart-column">Product Name</span>
+                            <span class="cart-price cart-header cart-column">Price</span>
+                            <span class="cart-quantity cart-header cart-column">Quantity</span>
+                            <span class="cart-total cart-header cart-column">Total</span>
+                            <span class="cart-action cart-header cart-column">Action</span>
+                        </div>
+                        <div class="cart-items">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer ">
+                    <div class="mtotal">
+                        <strong class="modal-footer-total ">Total:</strong>
+                        <span class="modal-footer-price ">₱0</span>
+                    </div>
+
+                    <button type="button" class="btn btn-primary">Order</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-md">
         <div class="logo">
             <div class="logo-word">
                 <a href="/">
@@ -37,9 +73,29 @@
         </div>
         <div class="btn-store">
             <ul class="navbar-nav m-auto">
-                <a href="#" class="nav-link text-light">ALL</a>
-                <a href="#" class="nav-link text-light">PRODUCTS</a>
-                <a href="#" class="nav-link text-light">CART</a>
+                <form class="form-inline nav-form">
+                    <div class="form-group">
+                        <select class="form-control" id="active" name="active">
+                            <option value="1">ALL</option>
+                            <option value="2">Janitorial Supplies</option>
+                            <option value="3">Commercial Products</option>
+                            <option value="4">Cleaning Chemicals</option>
+                            <option value="5">Cleaning Equipments</option>
+                            <option value="6">Organic Products</option>
+
+                        </select>
+                    </div>
+
+                    <div class="active-cyan-1 mb-0">
+                        <input class="form-control  form-control-l ml-3 w-90" type=" text" placeholder="Search"
+                            aria-label="Search" style="width:20rem;">
+                    </div>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#addModal">
+                        View Cart
+                    </button>
+
+
+                </form>
             </ul>
         </div>
     </nav>
@@ -53,94 +109,14 @@
         <!-- ITEMS -->
         <div class="shop-items">
             <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
+                <img class="shop-item-image" src="/public/Image/Green_Solutions_Glass_Cleaner.png">
                 <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                    <span class="shop-item-name">Green_Solutions_Glass_Cleaner</span>
+                    <span class="shop-item-price">₱300.00</span>
+                    <button class="btn shop-item-button" type="button" style="background: #f7912b; border:0;">ADD TO
+                        CART</button>
                 </div>
             </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-            <div class="shop-item">
-
-                <img class="shop-item-image" src="/public/Image/beylands.jpg">
-                <div class="shop-item-details">
-                    <span class="shop-item-price">00</span>
-                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-                </div>
-            </div>
-
         </div>
 
 

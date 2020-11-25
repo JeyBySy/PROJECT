@@ -10,13 +10,13 @@
     /* background: linear-gradient(180deg, #282828, #424242 ); */
     /* background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #282828), color-stop(1, #424242)); */
     /* background: #24272d; */
-    background: white;
+    background: rgb(255, 255, 255);
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 2;
-    border-bottom:white;
-    border-bottom-style: outset;
+    border-bottom:#39ca73;
+    border-bottom-style: inset;
 }
 .logo{
     padding-top: 0.5rem;
@@ -95,11 +95,13 @@ span {
 .footer{
     width: 100%;
     height: 340px;
-    color:white; 
-    background: #24272d;
+    color:black; 
+    background: #ffffff;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /* background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #282828), color-stop(1, #424242)); */
+     border-top:#39ca73;
+     border-top-style: outset;
 }
 hr{
     background: white;
