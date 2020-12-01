@@ -34,7 +34,7 @@ app.get('/confirm',(req,res)=>{
 
 //Rendering shop.html
 app.get('/store',(req,res)=>{
-    res.render('store.html',{layout: false})
+    res.render('shop.ejs',{layout: false})
 
 })
 //Rendering store.ejs
