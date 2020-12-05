@@ -11,17 +11,39 @@ const { model } = require('./models/model');
 const app = express();
 let port = 3001;
 mongoose.connect('mongodb://localhost/project', {useNewUrlParser: true,useUnifiedTopology: true })
-const project = require('./models/model')
+const products = require('./models/model')
+const addToCart = require('./router/add-to-cart')
+
+const session = require('express-session');
+const flash = require('express-flash')
+const MongoDBStore = require('connect-mongo')(session);
+
+app.use(session({
+  secret: 'secret session key',
+  resave: false,
+  saveUninitialized: true, //flase
+  store: new MongoDBStore({
+  mongooseConnection: mongoose.connection,
+  collection:'sessions'
+}),
+  cookie:{maxAge:1000 * 60* 60 * 24}, //24hours
+  unset: 'destroy',
+  name: 'session-cookie-name'
+}));
+app.use(flash())
 
 app.engine('html', exphbs());
 app.set('view engine','html');
 app.set('view engine', 'ejs');
-
-
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
-
 app.use('/public',express.static(path.join(__dirname,'/public')));
+app.use('/store',addToCart)
+
+// app.use((req,res,next)=>{
+//   res.locals.session = req.session
+//   next()
+// })
 
 //Rendering index.html
 app.get('/',(req,res)=>{
@@ -32,15 +54,15 @@ app.get('/confirm',(req,res)=>{
     res.render('confirm.html',{layout: false})
 })
 
-//Rendering shop.html
-app.get('/store',(req,res)=>{
-    res.render('shop.ejs',{layout: false})
-
-})
-//Rendering store.ejs
-app.get('/shop',(req,res)=>{
-    res.render('shop.ejs',{layout: false})
-
+//Rendering store.html
+app.get('/store',addToCart,async(req,res)=>{
+  //  if(!req.session.test) {
+  //   req.session.test = 'OK';
+  //   res.send('OK');
+  // }
+  // console.log(req.session)
+  const db = await products.find({})
+  res.render('shop.ejs',{db})
 })
 
 //Rendering services.html
