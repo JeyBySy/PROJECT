@@ -25,58 +25,64 @@ spans{
     height: auto;
     position: absolute;
     background: white;
-    top: 33%;
+    margin-top: 83px;
 }
 .header h1{
     padding: 1rem;
 }
 .wrapper-about-info{
-    width: 100%;
+    width: 85%;
     height:610px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: auto;
 }
 .about-info-picture{
     width: 100%;
-    margin: 3rem;
+    height: 80vh;
     background: lime;
 }
 .about-info-message{
     width: 100%;
     /* background: blue; */
 }
-.about-info-message p{
-    text-align: start;  
-    font-size: medium;
-    padding:3rem;
+.about-info-message p{  
+    justify-items: center;
     height: 100%;
+    width: 90%;
+    padding-left: 1rem;
+    margin: auto;
+     font-family: 'Poppins',
+     sans-serif;
 }
 .about-contact-top{
     width: 100%;
     height: 250px;
-    background: linear-gradient(180deg, #282828, #424242);
-    ;
-}
-.about-contact-top {
+    background: #39ca74;
     text-align: center;
+    margin-top: 2rem;
+}
+.about-contact-top h1{
+    color: white;
+     font-family: 'Poppins',
+     sans-serif;
 }
 .wrapper-about-MVQ{
-    width: 100%;
+    width: 90%;
     height:auto;
     display: grid;
     padding: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
 }
 .mission,
 .vision,
 .quality-policy{
     width: 100%;
     height: 550px;
-    padding: 60px;
-    border-width: 1px;
-    border-style: outset;
-    box-shadow: 0px 1px 5px 1px;
-    cursor: pointer;
+    padding: 40px;
+     box-shadow: #39ca74 0px 0px 5px 1px;
+   
     font-size: larger;
     /* background: hotpink; */
 }
@@ -84,8 +90,9 @@ spans{
 .vision,
 .quality-policy p{
     text-align: center;
+    
 }
-.mission p:hover{
+/* .mission p:hover{
     transition: all 0.6s;
     transform: scale(1.1);
 }
@@ -96,11 +103,12 @@ spans{
 .quality-policy p:hover {
     transition: all 0.6s;
     transform: scale(1.1);
-}
+} */
 
 .wrapper-management {
-    width: 100%;
+    width: 90%;
     height: 100%;
+    margin: auto;
      display: grid;
      padding-top: 2rem;
      grid-template-rows: 1fr 1fr;
@@ -108,17 +116,30 @@ spans{
 .management-ceo{
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.219);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.management-ceo-info{
+    width: 100%;
 }
 .management-ceo img{
-    width: 30%;
-    height: 100%;
-   
+    width: 85%;
+    
 }
 .management-employee{
+    margin-top: 1rem;
     width: 100%;
-    height: 500px;
-    background: rgba(31, 31, 31, 0.219);
+    height: auto;
+    background: rgba(148, 148, 148, 0.219);
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 2rem;
+}
+.management-employee-1 img{
+   width: 65%;
+   height: 80%;
+   margin: auto;
 }
 .about-contact-bot{
     width: 100%;

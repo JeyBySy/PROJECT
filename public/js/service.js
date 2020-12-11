@@ -1,5 +1,10 @@
-const card_text = document.getElementById('cards-img-textID')
+window.onload = function () {
+    window.scrollTo(0, 0);
+};
 
-card_text.addEventListener('mouseover',function(){
-    
+const offers = document.querySelectorAll('.card')
+const btn_offer = document.getElementById('chooseCard')
+
+btn_offer.addEventListener('click',()=>{
+    console.log(offers)
 })

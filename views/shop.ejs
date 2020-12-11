@@ -5,21 +5,12 @@
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Beylands Shop</title>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css">
     <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/shop-style.css">
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
@@ -28,7 +19,8 @@
 
 <body>
     <!-- MODAL FOR VIEWING THE CART -->
-    <div class="modal fade" tabindex="1" role="dialog" id="cartModal">
+
+    <!-- <div class="modal fade" tabindex="1" role="dialog" id="cartModal" style="overflow: hidden;">
         <div class="modal-dialog" style="max-width: 900px;" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -37,32 +29,73 @@
                         <span aria-hidden="true" style="color: black;">&times;</span>
                     </button>
                 </div>
+                <% if(session.cart && session.cart.totalPrice != 0){ %>
                 <div class="modal-body">
-                    <div class="modal-body-content" style="overflow-y: auto;">
-                        <div class="cart-row">
+                    <div class="modal-body-content" style="height: 70vh; overflow-y: auto;">
+                        <div class="cart-row" style="background: white; position: absolute; width: 95%; top: 0px;">
+                            <span class="cart-img cart-header cart-column">Image</span>
                             <span class="cart-productName cart-header cart-column">Product Name</span>
                             <span class="cart-price cart-header cart-column">Price</span>
                             <span class="cart-quantity cart-header cart-column">Quantity</span>
                             <span class="cart-total cart-header cart-column">Total</span>
                             <span class="cart-action cart-header cart-column">Action</span>
                         </div>
+                        <% products.forEach(function(items){%>
                         <div class="cart-items">
+                            <div class="cart-row" style="margin-top: 3rem;">
+                                <span class="cart-column-items cart-item-items"><img
+                                        src="/public/uploads/<%= items.item.image%>" alt=""></span>
+                                <span class="cart-column-items"><%= items.item.name%></span>
+                                <span class="cart-column-items">₱ <%= items.item.price%>.00</span>
+                                <span class="cart-column-items"><%= items.qty %></span>
+                                <span class="cart-column-items">₱ <%= items.price%>.00</span>
+                                <span class="cart-column-items">
+                                    <form action="/store/remove/<%= items.item._id %>">
+                                        <button type="submit">fdf</button>
+                                    </form>
+
+                                </span>
+                            </div>
                         </div>
+                        <%})%>
                     </div>
                 </div>
+                <% }else{ %>
+                <div class="modal-body">
+                    <div class="modal-body-content" style="overflow-y: auto;">
+                        <div class="cart-row">
+                            <span class="cart-img cart-header cart-column">Image</span>
+                            <span class="cart-productName cart-header cart-column">Product Name</span>
+                            <span class="cart-price cart-header cart-column">Price</span>
+                            <span class="cart-quantity cart-header cart-column">Quantity</span>
+                            <span class="cart-total cart-header cart-column">Total</span>
+                            <span class="cart-action cart-header cart-column">Action</span>
+                        </div>
+
+                        <div class="cart-items">
+                            <center>
+                                <p class="no-items alert alert-warning">your shopping cart is empty</p>
+                            </center>
+                        </div>
+
+                    </div>
+                </div>
+                <% } %>
+
+                <% if(session.cart){ %>
                 <div class="modal-footer ">
                     <div class="mtotal">
                         <strong class="modal-footer-total ">Total:</strong>
-                        <span class="modal-footer-price ">₱0</span>
+                        <span class="modal-footer-price ">₱<%=session.cart.totalPrice%>.00</span>
                     </div>
 
-                    <button type="button" class="btn btn-primary">Order</button>
+                    <button type="button" class="btn btn-primary" id="orderID">Checkout</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
+                <%}%>
             </div>
         </div>
-    </div>
-
+    </div> -->
     <nav class="navbar navbar-expand-md">
         <div class="logo">
             <div class="logo-word">
@@ -90,15 +123,24 @@
                         <input class="form-control  form-control-l ml-3 w-90" type=" text" placeholder="Search"
                             aria-label="Search" style="width:20rem;">
                     </div>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#cartModal">
-                        View Cart
-                    </button>
+                    <a href="/cart">
+                        <button style="margin-left: 1rem;" type="button" class="btn" id="cart_icon">
+                            <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:30px"></i>
+                            <% if(session.cart) { %>
+                               <% if(session.cart.totalQty <= 0) { %>
+                            <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
+                            <% }else {%>
+                             <span class="badge float-badge"><%= session.cart.totalQty %></span>
+                            <%}%>
 
-
+                            <% } %>
+                        </button>
+                    </a>
                 </form>
             </ul>
         </div>
     </nav>
+
     <div class="btn-store-mobile">
         <a href="#" class="nav-link text-light">ALL</a>
         <a href="#" class="nav-link text-light">ALL</a>
@@ -131,31 +173,54 @@
         </div>
     </div>
     <div class="list-store-wrapper">
+        <% if (msg.length > 0) { %>
+        <div class="alert alert-success" role="alert" style="margin-top:1rem; margin-bottom: 1rem; text-align: center;">
+            <strong> <%= msg %></strong>
+        </div>
+        <% }  %>
+        <% if (maxLimit.length > 0) { %>
+        <div class="alert alert-danger" role="alert"
+            style="margin-top:0.5rem; margin-bottom: 1rem; text-align: center;">
+            <strong> <%= maxLimit %></strong>
+        </div>
+        <% }  %>
         <!-- ITEMS -->
         <div class="shop-items">
 
             <%  db.forEach(function (item){ %>
-            <form action="/store/add-to-cart/<%=item.id %>" method="GET">
+            <form action="/store/add-to-cart/<%= item.id %>" method="POST">
                 <div class="shop-item" data-item-id=" <%= item.id %>">
                     <center>
                         <img class="shop-item-image" src="/public/uploads/<%= item.image %>" data-toggle="modal"
-                            data-target="#addModal">
+                            data-target="#addModal" name="jherlofds">
                     </center>
 
                     <div class="shop-item-details">
                         <span class="shop-item-name"><%= item.name %></span>
                         <span class="shop-item-price">₱<%= item.price %>.00</span>
-                        <button data-item="<%= JSON.stringify(item) %> " class="btn shop-item-button" type="submit"
-                            style="background: #f7912b; border:0;">
-                            ADD TO CART</button>
+                        <div class="p-s">
+                            <span class="shop-item-stocks">Stocks:</span>
+                            <span style="color: black; font-size: 15px; font-weight: 600;"><%= item.stocks %></span>
+                        </div>
+                        <div class="p-s">
+                            <input type="number" class="cart-stocks form-control" min='1' max="<%= item.stocks %>"
+                                value='1' name="quantity">
+                            <button data-item="<%= JSON.stringify(item) %> " class="btn shop-item-button" type="submit"
+                                style="background: #f7912b; border:0;" id="addToCart">
+                                ADD TO CART
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </form>
             <% }) %>
 
         </div>
+    </div>
+    <script type="module" src="/public/js/store.js"></script>
 
-        <script type="module" src="/public/js/store.js"></script>
+
 </body>
 
 </html>

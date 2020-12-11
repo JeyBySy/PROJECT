@@ -12,6 +12,7 @@
     height: auto;
     position: absolute;
     top: 92%;
+    z-index: 1;
 }
 .info {
     /* margin-top: 1rem; */

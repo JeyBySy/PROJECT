@@ -56,19 +56,12 @@
         <div class="service-form-message">
             <h2>Don't know what cleaning service to choose?</h2>
             <br>
-            <!-- <h4>Offers Professional cleaning</h4>
-            <br>
-            <h4>Affordable price</h4>
-            <br>
-            <a href="#">
-                click here for more info
-            </a> -->
 
         </div>
         <div class="service-form-field">
             <h2>Do you need Cleaning Services?</h2>
             <h5>No time to clean up because of hectic schedule? Kindly contact us.</h5>
-            <form action="/send-service-confirmation" method="POST">
+            <form action="/services/send-service-confirmation" method="POST" autocomplete="off">
                 <div class="form-group">
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name" name="name">
                 </div>
@@ -89,6 +82,12 @@
                         placeholder="Package / Message" name="message"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <% if (msg.length > 0) { %>
+                <div class="alert alert-success" style="float: right; width: 85%;">
+                    <strong> <%= msg %></strong>
+                </div>
+                <% }  %>
+
             </form>
         </div>
     </div>
@@ -138,7 +137,7 @@
                             </h6>
                         </p>
                         <center>
-                            <button class="btn btn-outline-success">SELECT</button>
+                            <button id="chooseCard" class="btn btn-outline-success">SELECT</button>
                         </center>
                     </div>
                 </div>
@@ -178,7 +177,7 @@
                             </h6>
                         </p>
                         <center>
-                            <button class="btn btn-outline-success">SELECT</button>
+                            <button id="chooseCard" class="btn btn-outline-success">SELECT</button>
                         </center>
                     </div>
                 </div>
@@ -213,7 +212,7 @@
                         </p>
                         <br>
                         <center>
-                            <button class="btn btn-outline-success">SELECT</button>
+                            <button id="chooseCard" class="btn btn-outline-success">SELECT</button>
                         </center>
                     </div>
                 </div>

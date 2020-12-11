@@ -59,7 +59,7 @@
             <div class="service-form">
                 <div class="service-form-field">
                     <h2>Do you have any Question?</h2>
-                    <form action="/send-question-confirmation" method="POST">
+                    <form action="/contact/send-question-confirmation" method="POST">
                         <div class="form-group">
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                                 placeholder="Name" name="name">
@@ -77,25 +77,52 @@
                                 placeholder="Message" name="message"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
+                        <br>
+
+                        <% if (msg.length > 0) { %>
+
+                        <div class="alert alert-success" role="alert" style="margin-top:1rem;">
+                            <strong> <%= msg %></strong>
+                        </div>
+                        <% }  %>
                     </form>
                 </div>
                 <div class="service-form-message">
                     <center>
-                        <h2>BEYLANDS</h2>
-                        <h2>Sales and Service Specialist</h2>
-                        <br>
+                        <h2 style="padding-top: 1rem; margin-left: 3rem; font-size: 32px; color:#fcfcfc;
+                     font-family: 'Poppins', arial, sans-serif; font-weight: bold;">
+                            <center> BEYLANDS</center> SALES AND SERVICES SPECIALIST
+                        </h2>
                     </center>
                     <img src="/public/Image/loc.png" alt="location" srcset="">
-                    <h4>Location</h4>
-                    <br>
+                    <ul>
+                        <li>
+                            <h5>No. 34-C Noble Street, Brgy. 7,
+                                Batangas City</h5>
+                        </li>
+                    </ul>
                     <img src="/public/Image/mobile.png" alt="mobile" srcset="">
-                    <h4>Cellphone Number</h4>
-                    <br>
-                    <img src="/public/Image/mobile.png" alt="mobile" srcset="">
-                    <h4>Cellphone Number</h4>
-                    <br>
+                    <ul>
+                        <li>
+                            <h5>(043) 706-1692 (PLDT)</h5>
+                        </li>
+                        <li>
+                            <h5>(043) 722-2749 (PLDT)</h5>
+                        </li>
+                        <li>
+                            <h5>0922-807-0693 (SUN)</h5>
+                        </li>
+                        <li>
+                            <h5> 0917-897-8323 (GLOBE</h5>
+                        </li>
+                    </ul>
                     <img src="/public/Image/email.png" alt="email" srcset="">
-                    <h4>Email</h4>
+                    <ul>
+                        <li>
+                            <h5>companybeylands@gmail.com</h5>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
 

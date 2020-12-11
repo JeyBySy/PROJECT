@@ -11,5 +11,7 @@ addToCart.forEach((btn)=>{
         var item = JSON.parse(btn.dataset.item)
         console.log(item)
         
+
+        
     })
 })

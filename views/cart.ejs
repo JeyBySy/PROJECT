@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+    <script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/shop-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
+    <style>
+        .navbar {
+            height: 15%;
+
+        }
+
+        .total-section {
+            position: fixed;
+            width: 80%;
+            margin: auto auto auto 10%;
+            background: rgb(255, 255, 255);
+            bottom: 0.2rem;
+            padding: 1.2rem;
+            box-shadow: #39ca74 0px 0px 5px 1px;
+        }
+
+        .cart-content {
+            margin: auto;
+            width: 80%;
+            margin-top: 11%;
+            margin-bottom: 10%;
+
+        }
+
+        .cart-row-header {
+            position: fixed;
+            width: 80%;
+            top: 15%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            color: black;
+            margin: auto auto auto 10%;
+            background: white;
+            z-index: 2;
+        }
+
+        .cart-row-header span {
+            color: black;
+        }
+
+        .cart-item-items img {
+            max-width: 45%;
+        }
+
+        .cart-column-items {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem;
+            font-size: 20px;
+        }
+
+        .modal-footer {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- MODAL FOR CHECKOUT -->
+    <div class="modal fade" tabindex="1" role="dialog" id="checkoutModal" style="overflow: hidden;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fa fa-shopping-cart"></i>
+                        Check Out</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: black;">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-content">
+                        <form action="/store/place-order" method="POST" autocomplete="off">
+                            <div class="form-group">
+                                <% if(session.cart){ %>
+                                <div class="modal-footer ">
+                                    <div class="mtotal">
+                                        <div class="p-s">
+                                            <strong class="modal-footer-total"
+                                                style="margin: auto auto auto 0;">Total</strong>
+                                            <span class="modal-footer-price"
+                                                name="totalPrice">₱<%=session.cart.totalPrice%>.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+                            </div>
+                       <hr>
+                        <div class="form-group">
+                           <label for="order-detail">Order Details</label>                                                                             
+                        </div>
+                        <div class="form-group">
+                            <div class="p-s">
+                                <label for="order-option">
+                                    Receive Option
+                                </label>
+                                 <div class="form-group">
+                                     <select class="form-control" id="recieveID" name="receiveOption">
+                                         <option value="Delivery">Delivery</option>
+                                         <option value="Pick Up">Pick Up</option>                                    
+                                     </select>
+                                 </div>
+                            </div>                                            
+                        </div>
+                           <div class="form-group">
+                               <input type="text" class="form-control" name="name" id="idID" 
+                                   placeholder="Contact Name">
+                           </div>
+                           <div class="form-group">
+                               <input type="text" class="form-control" name="shippingAddress" id="idID" 
+                                   placeholder="Shipping address">
+                           </div>                    
+                            <div class="form-group">
+                                <input type="tel" class="form-control" name="mobileNumber" id="mobile"
+                                    placeholder="Mobile Number" maxlength="11">
+                            </div>
+                           <div class="form-group">
+                               <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp"
+                                   placeholder="Email">
+                           </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary" id="orderID">PLACE ORDER</button>
+                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+               
+
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md">
+        <div class="logo">
+            <div class="logo-word">
+                <a href="/store">
+                    <h1>BEY<span>LANDS</span>
+                        <center>
+                            <sup> CART</sup>
+                        </center>
+                    </h1>
+                </a>
+            </div>
+        </div>
+    </nav>
+     
+    <div class="cart-row-header">
+        <span class="cart-img cart-header cart-column">Image</span>
+        <span class="cart-productName cart-header cart-column">Product Name</span>
+        <span class="cart-price cart-header cart-column">Price</span>
+        <span class="cart-quantity cart-header cart-column">Quantity</span>
+        <span class="cart-total cart-header cart-column">Total</span>
+        <span class="cart-action cart-header cart-column">Action</span>
+    </div>
+     <% if(session.cart && session.cart.totalPrice != 0 && msg ){ %>
+                                <div class="cart-content">
+                                    <% if (msg.length > 0) { %>
+                                    <div class="alert alert-danger" role="alert"
+                                        style="z-index: 1; padding-top:1.5rem; text-align: center;">
+                                        <strong> <%= msg %></strong>
+                                    </div>
+                                    <% }  %>
+                                    <% products.forEach(function(items){%>
+                                    <div class="cart-row">
+                                        <span class="cart-column-items cart-item-items">
+                                            <img src="/public/uploads/<%= items.item.image%>" alt="">
+                                        </span>
+                                        <span class="cart-column-items"><%= items.item.name%></span>
+                                        <span class="cart-column-items">₱ <%= items.item.price%>.00</span>
+                                        <span class="cart-column-items manageItems" id="manageItem">
+                                            <a href="/store/reduce/<%=items.item._id%>">
+                                                <i class="fa fa-minus" style="margin-right:1rem;" id="minusID"></i>
+                                            </a>
+                                            <%= items.qty %>
+
+                                            <a href="/store/addOne/<%=items.item._id%>">
+                                                <i class="fa fa-plus" style="margin-left:1rem;" id="plusID"></i>
+                                            </a>
+                                        </span>
+                                        <span class="cart-column-items">₱ <%= items.price%>.00</span>
+                                        <span class="cart-column-items">
+                                            <form action="/store/remove/<%= items.item._id %>">
+                                                <button class='btn' type="submit" id="removeBTN"
+                                                    style="border: none; font-size:30px;">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </form>
+
+                                        </span>
+                                    </div>
+
+                                    <%})%>
+                                    <% }else{ %>
+                                    <div class="modal-body">
+                                        <div class="modal-body-content" style="overflow-y: auto;">
+                                            <div class="cart-row-header">
+                                                <span class="cart-img cart-header cart-column">Image</span>
+                                                <span class="cart-productName cart-header cart-column">Product
+                                                    Name</span>
+                                                <span class="cart-price cart-header cart-column">Price</span>
+                                                <span class="cart-quantity cart-header cart-column">Quantity</span>
+                                                <span class="cart-total cart-header cart-column">Total</span>
+                                                <span class="cart-action cart-header cart-column">Action</span>
+                                            </div>
+                                            <div class="cart-row">
+                                                <span class="cart-img cart-header cart-column">Image</span>
+                                                <span class="cart-productName cart-header cart-column">Product
+                                                    Name</span>
+                                                <span class="cart-price cart-header cart-column">Price</span>
+                                                <span class="cart-quantity cart-header cart-column">Quantity</span>
+                                                <span class="cart-total cart-header cart-column">Total</span>
+                                                <span class="cart-action cart-header cart-column">Action</span>
+                                            </div>
+
+                                            <div class="cart-items">
+                                                <center>
+                                                    <p class="no-items alert alert-warning">your shopping cart is empty
+                                                    </p>
+                                                </center>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <% } %>
+
+                                </div>
+                                <div class="total-section">
+                                    <% if(session.cart && session.cart.totalPrice != 0){ %>
+                                    <div class="modal-footer ">
+                                        <div class="mtotal">
+                                            <strong class="modal-footer-total ">Total:</strong>
+                                            <span class="modal-footer-price">₱<%=session.cart.totalPrice%>.00</span>
+                                        </div>
+                                        <button type="button" class="btn btn-primary checkoutBTN" id="orderID"
+                                            data-toggle="modal" data-target="#checkoutModal" data-backdrop="static"
+                                            data-keyboard="false">Checkout</button>
+
+                                    </div>
+                                    <%} else{%>
+                                    <% if (msg.length > 0) { %>
+                                    <div class="alert alert-success" role="alert"
+                                        style="margin-top:1rem; margin-bottom: 1rem; text-align: center;">
+                                        <strong> <%= msg %></strong>
+                                    </div>
+                                    <% }  %>
+                                    <div class="modal-footer ">
+                                        <div class="mtotal">
+                                            <strong class="modal-footer-total ">Total:</strong>
+                                            <span class="modal-footer-price">₱0.00</span>
+                                        </div>
+
+                                        <button type="button" class="btn btn-secondary checkoutBTN" id="orderID"
+                                            data-toggle="modal" data-target="#checkoutModal" data-backdrop="static"
+                                            data-keyboard="false" disabled>Checkout
+                                        </button>
+
+                                    </div>
+                                    <%}%>
+            </div>
+
+            <script>
+                // const manageItem = document.querySelectorAll('manageItem')
+                // const add = document.getElementById("plusID")
+                // const minus = document.getElementById("minusID")
+
+                // minus.addEventListener('click',()=>{
+                //     manageItem.style.pointerEvents = "none"
+                //     manageItem.style.opacity = "0.5"
+                // })
+                // add.addEventListener('click',()=>{
+                //     manageItem.style.pointerEvents = "none"
+                //     manageItem.style.opacity = "0.5"
+                // })
+
+                
+                
+            </script>
+</body>
+</html>
