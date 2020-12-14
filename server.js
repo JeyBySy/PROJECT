@@ -9,7 +9,7 @@ const { urlencoded } = require('body-parser');
 const { info } = require('console');
 const { model } = require('./models/model');
 const app = express();
-let port = 3001;
+let port = process.env.PORT || 3001;
 mongoose.connect('mongodb+srv://admin123:zRIkqj9Pk8Uz2A5I@cluster0.p1ih6.mongodb.net/project', {useNewUrlParser: true,useUnifiedTopology: true }) 
 // mongodb+srv://admin123:zRIkqj9Pk8Uz2A5I@cluster0.p1ih6.mongodb.net/test mongodb://localhost/project
 const Products = require('./models/model')
