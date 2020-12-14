@@ -7,12 +7,8 @@
     font-size: calc(0.5vh + 1vw + 30%);
 } */
 .navbar{
-    /* background-color: #282828; */
     padding: 0;
     margin: 0;
-    /* background: linear-gradient(180deg, #282828, #424242 ); */
-    /* background:-webkit-gradient(linear, left bottom, left top, color-stop(0, #282828), color-stop(1, #424242)); */
-    /* background: #24272d; */
     background: rgb(255, 255, 255);
     width: 100%;
     position: fixed;
@@ -67,13 +63,14 @@ span {
     width: 100%;
     position:fixed;
     z-index:0;
+    padding: 0;
 }
 .carousel slide{
     background: black;  
 }
 .carousel img{
     width: 100%;
-    height: 550px;  
+    height: 80vh;  
     /* background-repeat: no-repeat; */
     
 }
@@ -83,7 +80,7 @@ span {
 }
 .footer{
     width: 100%;
-    height: 340px;
+    height: auto;
     color:black; 
     background: #ffffff;
     display: grid;

@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 .service-form {
     /* margin-top: 1rem; */
     width: 100%;
@@ -11,9 +16,11 @@
 .wrapper {
     height: auto;
     position: absolute;
-    top: 92%;
+    top: 90%;
     z-index: 1;
+    padding: 0%;
 }
+
 .info {
     /* margin-top: 1rem; */
     background-color: white;
@@ -23,8 +30,8 @@
 }
 .info-content{
     width: 85%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
     padding: 1rem;
     margin: auto;
 }
@@ -78,13 +85,14 @@
 }
 
 .service-form {
-    /* margin-top: 1rem; */
     width: 100%;
-    height: 550px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    height: auto;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
     background: #39ca74;
-    /* border-style: dotted; */
+    display: flex;
+    flex-wrap: wrap;
+    
 }
 
 .service-form h2 {
@@ -104,12 +112,12 @@
 .service-form-message {
     /* background: rgb(168, 166, 166); */
     border-color: black;
-    margin: auto 0px auto 4rem;
+    margin: auto;
 
 }
 
 .service-form-field {
-    margin: auto 4rem auto 0px;
+    margin: auto;
 }
 
 .service-form-field textarea {
@@ -133,16 +141,22 @@
     width: 100%;
     height: 85vh;
 }
+.navbar-toggler-icon{
+    z-index: 1;
+   
+}
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
     .column {
         -ms-flex: 50%;
         flex: 50%;
         max-width: 50%;
+        
     }
     .modal-dialog{
         margin:auto;
     }
+    
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
