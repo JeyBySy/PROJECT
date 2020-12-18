@@ -58,11 +58,7 @@ app.use((req,res,next)=>{
 
 //Rendering index.html
 app.get('/',(req,res)=>{
-    res.render('index.html',{layout: false})
-})
-//Rendering confirm message
-app.get('/confirm',(req,res)=>{
-    res.render('confirm.html',{layout: false})
+    res.render('index.ejs',{msg: req.flash('msg'),msg_failed:req.flash('msg_failed')})
 })
 
 //Rendering store.html
@@ -75,39 +71,40 @@ app.get('/store',addToCart,async(req,res)=>{
   }
    var cart = new Cart(req.session.cart)
   res.render('shop.ejs',{msg: req.flash('msg'), maxLimit: req.flash('maxLimit'),db,products:cart.generateArray(),totalPrice:cart.totalPrice})
+  return
 })
 app.get('/cart',(req,res)=>{
-if(!req.session.cart){
+  if(!req.session.cart){
     return  res.render('cart.ejs',{products:null,msg: req.flash('msg')})
   }
-  var cart = new Cart(req.session.cart)
+   var cart = new Cart(req.session.cart)
   res.render('cart.ejs',{products:cart.generateArray(),totalPrice:cart.totalPrice, msg: req.flash('msg')})
+  return
 })
 
 app.get('/checkout',(req,res)=>{
-if(!req.session.cart){
-    return  res.redirect('/cart')
+  if(!req.session.cart){
+      return  res.redirect('/cart')
   }
   var cart = new Cart(req.session.cart)
   res.render('cart.ejs',{products:cart.generateArray(),totalPrice:cart.totalPrice, msg: req.flash('msg')})
+  return
 })
 
 //Rendering services.html
 app.get('/services',(req,res)=>{
-    res.render('service.ejs',{msg: req.flash('msg')})
+    res.render('service.ejs',{msg: req.flash('msg'),msg_failed:req.flash('msg_failed')})
 })
 
 //Rendering contact.html
 app.get('/contact',(req,res)=>{
-    res.render('contact.ejs',{msg: req.flash('msg')})
+    res.render('contact.ejs',{msg: req.flash('msg'),msg_failed:req.flash('msg_failed')})
 })
 
 //Rendering about.html
 app.get('/about',(req,res)=>{
     res.render('about.html',{layout: false})
 })
-
-
 
 app.listen(port,() => {
     console.log("Success to 3001")

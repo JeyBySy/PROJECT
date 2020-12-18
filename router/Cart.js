@@ -43,10 +43,10 @@ module.exports = function Cart(oldCart){
         if(this.items[id].qty == this.items[id].item.stocks){
             return
         }
-        return this.items[id].qty++;
-        return this.items[id].price += this.items[id].item.price
-        return this.totalQty++;
-        return this.totalPrice += this.items[id].item.price
+        this.items[id].qty++;
+        this.items[id].price += this.items[id].item.price
+        this.totalQty++;
+        this.totalPrice += this.items[id].item.price
     }
 
     this.removeAll = async function(id){

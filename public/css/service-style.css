@@ -2,6 +2,7 @@
     width: 100%;
     height: auto;
     background: rgb(255, 255, 255);
+
     display: grid;
     grid-template-rows: auto auto;
 
@@ -9,9 +10,11 @@
 .content-offer-title{
     width: 100%;
     margin: auto;
+    padding: 0%;
      text-align: center;
 }
 .content-offer-content {
+   
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -19,14 +22,16 @@
 }
 .wrapper-service-offer{
     width: 100%;
-    height: 500px;
+    height:fit-content;
     margin-top: 2rem;
+    padding: 0%;
     background:-webkit-gradient(linear, right top, left top, color-stop(1, #1fb65c), color-stop(0, #39ca74));
 }
 .service-contact{
      width: 100%;
-     height: 500px;
-     background: white;
+     height: fit-content;
+     background: rgb(255, 255, 255);
+     padding: 0%;
 }
 .footer-bottoom{
     position: absolute;
@@ -35,28 +40,31 @@
     width: 100%;
 }
 .wrapper {
+    /* width: 100%; */
     height: fit-content;
     position: absolute;
-    margin-top: 46.6%;
-    background: white;
+    overflow-x: hidden;
+    padding: 0;
+    box-sizing: border-box;
 }
 .service-form {
-    margin-top: 6%;
+    margin-top: 83px;
     width: 100%;
     height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* background: #39ca74; */
-    /* background:-webkit-gradient(linear, right top, left top, color-stop(1, #25da6e), color-stop(0, #39ca74)); */
-    background:-webkit-gradient(linear, right top, left top, color-stop(1, #1fb65c), color-stop(0, #39ca74));
-    position:fixed;
     z-index: 0;
-    padding-bottom: 5rem;
+     background: #4dc475;
+     font-family: 'Poppins',
+     sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+     /* display: grid;
+    grid-template-columns: 1fr 1fr; */
 }
 
 .service-form h2 {
     color: rgb(255, 255, 255);
-    font-size: 39px;
+    font-size: 30px;
     letter-spacing: -1px;
     text-shadow: 1px 1px gray;
 }
@@ -71,23 +79,22 @@
 .service-form-message {
     /* background: rgb(168, 166, 166); */
     border-color: black;
-    margin: auto 0px auto 4rem;
+    margin: auto;
 
 }
-
 .service-form-field {
-    margin: 2rem 2rem auto 0px;
+    margin: auto;
+    padding: 0%;
 }
 
 .service-form-field textarea {
     resize: none;
 }
 .card{
-    box-shadow: black 0px 1px 10px 0px;
+    margin: 0.5rem;
     border-style: outset;
-    width: 30%;
-    margin: 1rem;
-
+    width: 100%;
+  box-shadow: #39ca74 0px 0px 5px 1px;
 }
 .card ul{
     display: inline;
@@ -102,7 +109,7 @@
 }
 .card-body{
     background: rgb(255, 255, 255);
-    margin: 0;
+ 
     padding: 0;
 }
 .card-body .btn{
@@ -115,14 +122,14 @@
     text-align: start;
 }
 .card-title{
-     /* background: #39ca74; */
-     background:-webkit-gradient(linear, right top, left top, color-stop(1, #1fb65c), color-stop(0, #39ca74));
+     background: #4dc475;
      width: 100%;
      height: 70px;
      padding: 1rem 40px;
      clip-path: polygon(0 0, 100% 0%, 100% 65%, 0% 100%);
      position: relative;
 }
+
 .card-title-price{
     font-size: 40px;
     color: green;
@@ -148,26 +155,24 @@
 /* beylands offers */
 .cards{
   position: relative;
-  height: 200px;
-  width: 257px;
+  height: fit-content;
+  width: fit-content;
+  padding: 0%;
+  margin: auto;
 }
 .cards img{
     max-width: 100%;
-    height: 100%
+    height: 100%;
+    margin:1rem;
 }
 .cards-img-text{
    position: absolute;
-   top: 0;
+   top: 45%;
    bottom: 0;
    left: 0;
    right: 0;
-  
-   background: rgba(29, 106, 154, 0.72);
-   color: #fff;
    visibility: hidden;
    opacity: 0;
-
-   /* transition effect. not necessary */
    transition: opacity .2s,
    visibility .2s;
 }
@@ -176,16 +181,35 @@
      opacity: 1;
 }
 .wrapper-service-offer-content{
-    display: flex inline;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
     text-align:center;  
+    padding: 0;
+  
 }
 .wrapper-service-offer-content h4{
-    font-family: Open Sans,
-    Helvetica,
-    Arial,
+    font-family: 'Poppins',
     sans-serif;
-    font-size: 30px;
+    font-size:30px;
+    text-align: center;
+    color: #ffffff;
+     text-shadow: 1px 1px rgb(0, 0, 0);
+    font-weight: 700;
 }
+.caption{
+    width: fit-content;
+    height: auto;
+    margin: 1rem;
+}
+.wrapper-service-offer-content img{
+    max-width:350px;
+    height:250px;
+    padding:0;
+    margin: 1rem;
+    background-repeat: no-repeat;
+    box-shadow: #373737f7 0px 0px 5px 1px;
+    background-position: center;
+    background-size: contain;
 
+}

@@ -18,6 +18,9 @@ p{
     font-style: normal;
     opacity: 0.8;
 }
+body{
+    overflow-x: hidden;
+}
 spans{
     color:rgb(2, 109, 2)
 }
@@ -26,24 +29,31 @@ spans{
     position: absolute;
     background: white;
     margin-top: 83px;
+    padding: 0;
 }
 .header h1{
     padding: 1rem;
 }
 .wrapper-about-info{
     width: 85%;
-    height:610px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+     height: fit-content;
+     /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    flex-wrap: wrap;
     margin: auto;
+    padding: 0;
+     /* background: #39ca74; */
 }
 .about-info-picture{
     width: 100%;
-    height: 80vh;
-    background: lime;
+    height: fit-content;
+    background: rgb(255, 255, 255);
 }
 .about-info-message{
     width: 100%;
+
+  
     /* background: blue; */
 }
 .about-info-message p{  
@@ -57,10 +67,11 @@ spans{
 }
 .about-contact-top{
     width: 100%;
-    height: 250px;
+    height: fit-content;
     background: #39ca74;
     text-align: center;
     margin-top: 2rem;
+    padding: 0%;
 }
 .about-contact-top h1{
     color: white;
@@ -70,16 +81,18 @@ spans{
 .wrapper-about-MVQ{
     width: 90%;
     height:auto;
-    display: grid;
-    padding: 2rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
     margin: auto;
+    padding: 1rem;
+ 
 }
 .mission,
 .vision,
 .quality-policy{
-    width: 100%;
-    height: 550px;
+    /* width: 100%; */
+    height: auto;
     padding: 40px;
      box-shadow: #39ca74 0px 0px 5px 1px;
    
@@ -90,56 +103,47 @@ spans{
 .vision,
 .quality-policy p{
     text-align: center;
-    
+    font-family: 'Poppins',
+    sans-serif;
 }
-/* .mission p:hover{
-    transition: all 0.6s;
-    transform: scale(1.1);
-}
-.vision p:hover {
-    transition: all 0.6s;
-    transform: scale(1.1);
-}
-.quality-policy p:hover {
-    transition: all 0.6s;
-    transform: scale(1.1);
-} */
-
 .wrapper-management {
     width: 90%;
     height: 100%;
     margin: auto;
-     display: grid;
+
      padding-top: 2rem;
-     grid-template-rows: 1fr 1fr;
 }
 .management-ceo{
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
 }
 .management-ceo-info{
     width: 100%;
 }
 .management-ceo img{
-    width: 85%;
+    width: 100%;
     
 }
 .management-employee{
     margin-top: 1rem;
     width: 100%;
     height: auto;
-    background: rgba(148, 148, 148, 0.219);
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    background: rgba(242, 235, 235, 0.219);
+    padding: 2rem;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+    flex-wrap: wrap;
+    display: flex;
     margin-bottom: 2rem;
+  
 }
 .management-employee-1 img{
-   width: 65%;
+   width:100%;
    height: 80%;
    margin: auto;
+   padding: 0%;
 }
 .about-contact-bot{
     width: 100%;

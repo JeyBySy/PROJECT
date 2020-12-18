@@ -26,11 +26,12 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/contact-style.css">
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     </body>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="logo">
             <div class="logo-word">
                 <a href="/">
@@ -53,113 +54,147 @@
 
     </nav>
 
+
     <div class="wrapper" id="wrapperID">
-        <div class="header">
-            <!-- PICTURE HERE -->
-            <div class="service-form">
-                <div class="service-form-field">
-                    <h2>Do you have any Question?</h2>
-                    <form action="/contact/send-question-confirmation" method="POST">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                placeholder="Name" name="name">
+        <% if (msg.length > 0) { %>
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-primary text-center container-fluid" style="margin: auto; width: 90%; z-index: 2;">
+                <strong style="text-transform: uppercase;"><%= msg %></strong>
+            </div>
+        </div>
+        <% }  %>
+        <% if (msg_failed.length > 0) { %>
+        <div class="d-flex justify-content-center">
+            <div class="alert alert-danger text-center container-fluid" style="margin: auto; width: 100%; z-index: 2;">
+                <strong style="text-transform: uppercase;"><%= msg_failed %></strong>
+            </div>
+        </div>
+        <% }  %>
+        <div class="header container-fluid">
+            <div class="service-form container-fluid ">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="service-form-field container-fluid">
+                            <hr>
+                            <h2>Do you have any Question?</h2>
+                            <form action="/contact/send-question-confirmation" method="POST" autocomplete="off">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" placeholder="Name" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class=" form-control" id="exampleInputPassword1"
+                                        placeholder="Email Address" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" id="exampleInputPassword1"
+                                        placeholder="Mobile Number" name="number" maxlength="11">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                                        placeholder="Message" name="message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <br>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <input type="email" class=" form-control" id="exampleInputPassword1"
-                                placeholder="Email Address" name="email">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="exampleInputPassword1"
-                                placeholder="Mobile Number" name="number">
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
-                                placeholder="Message" name="message"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <br>
-
-                        <% if (msg.length > 0) { %>
-
-                        <div class="alert alert-success" role="alert" style="margin-top:1rem;">
-                            <strong> <%= msg %></strong>
-                        </div>
-                        <% }  %>
-                    </form>
+                    </div>
                 </div>
-                <div class="service-form-message">
-                    <center>
-                        <h2 style="padding-top: 1rem; margin-left: 3rem; font-size: 32px; color:#fcfcfc;
+                <div class="service-form-message container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <hr>
+                            <h2 style="padding-top: 1rem; margin-left: 3rem; font-size: 32px; color:#fcfcfc;
                      font-family: 'Poppins', arial, sans-serif; font-weight: bold;">
-                            <center> BEYLANDS</center> SALES AND SERVICES SPECIALIST
-                        </h2>
-                    </center>
-                    <img src="/public/Image/loc.png" alt="location" srcset="">
-                    <ul>
-                        <li>
-                            <h5>No. 34-C Noble Street, Brgy. 7,
-                                Batangas City</h5>
-                        </li>
-                    </ul>
-                    <img src="/public/Image/mobile.png" alt="mobile" srcset="">
-                    <ul>
-                        <li>
-                            <h5>(043) 706-1692 (PLDT)</h5>
-                        </li>
-                        <li>
-                            <h5>(043) 722-2749 (PLDT)</h5>
-                        </li>
-                        <li>
-                            <h5>0922-807-0693 (SUN)</h5>
-                        </li>
-                        <li>
-                            <h5> 0917-897-8323 (GLOBE</h5>
-                        </li>
-                    </ul>
-                    <img src="/public/Image/email.png" alt="email" srcset="">
-                    <ul>
-                        <li>
-                            <h5>companybeylands@gmail.com</h5>
-                        </li>
-                    </ul>
+                                BEYLANDS SALES AND SERVICES SPECIALIST
+                            </h2>
 
+                            <img src="/public/Image/loc.png" alt="location" srcset="">
+                            <ul>
+                                <li>
+                                    <h5>No. 34-C Noble Street, Brgy. 7,
+                                        Batangas City</h5>
+                                </li>
+                            </ul>
+                            <img src="/public/Image/mobile.png" alt="mobile" srcset="">
+                            <ul>
+                                <li>
+                                    <h5>(043) 706-1692 (PLDT)</h5>
+                                </li>
+                                <li>
+                                    <h5>(043) 722-2749 (PLDT)</h5>
+                                </li>
+                                <li>
+                                    <h5>0922-807-0693 (SUN)</h5>
+                                </li>
+                                <li>
+                                    <h5> 0917-897-8323 (GLOBE)</h5>
+                                </li>
+                            </ul>
+                            <img src="/public/Image/email.png" alt="email" srcset="">
+                            <ul>
+                                <li>
+                                    <h5>companybeylands@gmail.com</h5>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
 
-        <div class="footer">
-            <div class="footer-left" style="margin: 2rem;">
-                <h5>ABOUT US</h5>
-                <hr>
-                <h5 style="color: rgba(0, 0, 0, 0.597);">Beylands stands for the first letter of the family’s name
-                    and last name, Bea, Erin,
-                    Ycel, Luciana, Ariane, Norberto Delos Santos. The business started as...<a href="/about"
-                        style="text-decoration: none;color: rgb(48, 159, 243);">read
-                        more</a>
-                </h5>
+        <div class="footer container-fluid">
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="footer-left" style="margin: 2rem;">
+                        <h5>ABOUT US</h5>
+                        <hr>
+                        <h5 style="color: rgba(0, 0, 0, 0.597);">Beylands stands for the first letter of the
+                            family’s
+                            name
+                            and last name, Bea, Erin,
+                            Ycel, Luciana, Ariane, Norberto Delos Santos. The business started as...<a href="/about"
+                                style="text-decoration: none;color: rgb(48, 159, 243)">read
+                                more</a>
+                        </h5>
+                    </div>
+                </div>
             </div>
-            <div class="footer-social" style="margin: 2rem;">
-                <h5>SOCIAL</h5>
-                <hr>
+            <div class="row container-fluid">
+                <div class="col text-center container-fluid">
+                    <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="footer-social" style="margin: 2rem;">
+                            <h5>SOCIAL</h5>
+                            <hr>
+                            <a href="https://web.facebook.com/beylandssales/">
+                                <img src="/public/Image/facebook.png" alt="facebook" style="width:40px; height:40px">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center container-fluid">
+                    <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="footer-certificate" style="margin: 2rem;">
+                            <h5>LICENSES AND PERMITS</h5>
+                            <hr>
+                            <img src="/public/Image/dti.png" alt="DTI" class="img-fluid"
+                                style="width:100px; height:100px">
+                            <img src="/public/Image/proc.png" alt="Procuremnet Service" class="img-fluid"
+                                style="widows: 100px; height:100px">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-                <a href="https://web.facebook.com/beylandssales/">
-                    <img src="/public/Image/facebook.png" alt="facebook" style="width:40px; height:40px">
-                </a>
-            </div>
-            <div class="footer-certificate" style="margin: 2rem;">
-                <h5>LICENSES AND PERMITS</h5>
-                <hr>
-                <img src="/public/Image/dti.png" alt="DTI" style="width:100px; height:100px">
-                <img src="/public/Image/proc.png" alt="Procuremnet Service" style="widows: 100px; height:100px">
+                    <div class="footer-bottom container-fluid text-center">
+                        <h1>BEY<span>LANDS</span></h1>
+                        <br>
+                        © Copyright 2020 Beylands Sales and Service Specialist | All Rights Reserved
+                    </div>
 
+                </div>
             </div>
-            <div class="footer-bottom">
-                <h1>BEY<span>LANDS</span></h1>
-                <br>
-                © Copyright 2020 Beylands Sales and Service Specialist | All Rights Reserved
-            </div>
-
         </div>
     </div>
     <script src="./js/app.js"></script>

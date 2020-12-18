@@ -4,14 +4,22 @@ const nodemailer = require('nodemailer')
 
 //Sending Question
 router.post('/send-question-confirmation',(req,res)=>{
- const send = `
-    <p>You have new contact request</p>
-    <ul>
-    <li>Name: ${req.body.name}</li>
-    <li>Email: ${req.body.email}</li>
-    <li>Mobile Number: ${req.body.number}</li>
-    </ul>
-    <p>Message: ${req.body.message}</p>
+  if(req.body.name == '' || req.body.email == '' || req.body.number =='' || req.body.message == '' || !Number(req.body.number)){
+   req.flash('msg_failed','Process Failed: Please complete and check all the required information if correct')
+  return res.redirect('/contact'); // {msg:'email sent'}
+    
+  }
+   const send = `
+     <div style="font-size:25px;">
+    <p>SOMEONE MESSAGE US</p>
+    Name: <strong><u>${req.body.name}</u></strong>
+    <br>
+    Email: <strong><u>${req.body.email}</u></strong>
+    <br>
+    Mobile Number: <strong><u>${req.body.number}</u></strong>
+    <br>
+    <p>Message: <strong><u>${req.body.message}</u></p></strong>
+    </div>
     `;
 let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -26,7 +34,7 @@ let transporter = nodemailer.createTransport({
 
   // send mail with defined transport object
   let mailOptions = {
-    // from:'njcocosa@gmail.com',
+    from:req.body.email,
     to: 'companybeylands@gmail.com', // list of receivers
     subject: "[ MESSAGE ] WANT TO REACH OUT", // Subject line
     // text: "Hello world?", // plain text body
@@ -47,15 +55,24 @@ let transporter = nodemailer.createTransport({
 //sending email 
 router.post('/send-service-confirmation',(req,res)=>{
 //   console.log(req.body)
+if(req.body.name == '' || req.body.email == '' || req.body.number =='' || req.body.address == '' || req.body.message == '' || !Number(req.body.number)){
+   req.flash('msg_failed','Process Failed: Please complete and check all the required information if correct')
+  return res.redirect('/services'); // {msg:'email sent'}
+    
+  }
     const send = `
-    <p>You have new contact request</p>
-    <ul>
-    <li>Name: ${req.body.name}</li>
-    <li>Email: ${req.body.email}</li>
-    <li>Mobile Number: ${req.body.number}</li>
-    <li>Address of Place to be Clean: ${req.body.address}</li>
-    </ul>
-    <p>Message: ${req.body.message}</p>
+     <div style="font-size:25px;">
+    <p>AVAILING OF SERVICE</p>
+    Name: <strong><u>${req.body.name}</u></strong>
+    <br>
+    Email: <strong><u>${req.body.email}</u></strong>
+    <br>
+    Mobile Number: <strong><u>${req.body.number}</u></strong>
+    <br>
+    Address of Place to be Clean: <strong><u>${req.body.address}</u></strong>
+    <br>
+    <p>Message: <strong><u>${req.body.message}</u></p></strong>
+    </div>
     `;
 
     let transporter = nodemailer.createTransport({
@@ -71,7 +88,7 @@ router.post('/send-service-confirmation',(req,res)=>{
 
   // send mail with defined transport object
   let mailOptions = {
-    // from:'njcocosa@gmail.com',
+     from:req.body.email,
     to: 'companybeylands@gmail.com', // list of receivers
     subject: "[ IMPORTANT ] AVAILING OF SERVICE", // Subject line
     // text: "Hello world?", // plain text body
@@ -86,6 +103,58 @@ router.post('/send-service-confirmation',(req,res)=>{
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   req.flash('msg','Send Successfully')
   res.redirect('/services'); // {msg:'email sent'}
+   });
+});
+
+router.post('/send-service-confirmation-home',(req,res)=>{
+  // console.log(req.body)
+  if(req.body.name == '' || req.body.email == '' || req.body.number =='' || req.body.address == '' || req.body.message == '' || !Number(req.body.number)){
+   req.flash('msg_failed','Process Failed: Please complete and check all the required information if correct')
+  return res.redirect('/'); // {msg:'email sent'}
+    
+  }
+    const send = `
+     <div style="font-size:25px;">
+    <p>AVAILING OF SERVICE</p>
+    Name: <strong><u>${req.body.name}</u></strong>
+    <br>
+    Email: <strong><u>${req.body.email}</u></strong>
+    <br>
+    Mobile Number: <strong><u>${req.body.number}</u></strong>
+    <br>
+    Address of Place to be Clean: <strong><u>${req.body.address}</u></strong>
+    <br>
+    <p>Message: <strong><u>${req.body.message}</u></p></strong>
+    </div>
+    `;
+    let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'companybeylands@gmail.com',
+      pass: 'beylandsofficial'
+  },
+    tls:{
+      rejectUnauthorized:false
+    }
+  });
+
+  // send mail with defined transport object
+  let mailOptions = {
+    from:req.body.email,
+    to: 'companybeylands@gmail.com', // list of receivers
+    subject: "[ IMPORTANT ] AVAILING OF SERVICE", // Subject line
+    // text: "Hello world?", // plain text body
+    html: send, // html body
+  };
+  transporter.sendMail(mailOptions,(error, info)=>{
+    if(error){
+      return console.log(error)
+    }
+ 
+  console.log("Message sent: %s", info.messageId);
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  req.flash('msg','Send Successfully')
+  res.redirect('/'); // {msg:'email sent'}
    });
 });
 

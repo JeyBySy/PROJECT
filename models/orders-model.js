@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const projectSchema= new Schema({
     cart:{
         type:Object,
-        required:true,
+       
     },
     name:{
         type:String,

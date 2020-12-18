@@ -1,6 +1,7 @@
 const express = require('express')
 const products = require('./../models/model')
 const Orders = require('./../models/orders-model')
+const Cart_Orders = require('./../models/cart-model')
 const Cart = require('./Cart')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
@@ -11,11 +12,11 @@ router.use(express.urlencoded({extended:false}))
 router.post('/add-to-cart/:id',async(req,res)=>{
   // console.log(req.body.quantity)
   var productId = req.params.id;
-  var cart = new Cart(req.session.cart ? req.session.cart : {})
+  var cart = new Cart(req.session.cart ? req.session.cart : {items:{}})
 
   
    await products.findById(productId,async function(err,product){
-    if(err){
+    if(err){  
       return res.redirect('/store')
     }
     // else if((Number(req.body.quantity)+ Number(cart.qtyProduct)) > product.stocks){
@@ -57,29 +58,26 @@ router.get('/remove/:id',async(req,res,next)=>{
 })
 
 router.post('/place-order',(req,res)=>{
-  // console.log(req.body.totalPrice)
    var cart = new Cart(req.session.cart ? req.session.cart : {})
   var order = new Orders({
-     cart:cart,
+    cart:cart,
     name:req.body.name,
+
     email:req.body.email,
     contact:req.body.mobileNumber,
     address:req.body.email,
     receive:req.body.receiveOption
-    
   })
   order.save(function(err,result){
-    if(err){
+     if(err){
       console.log(err)
       req.flash('msg','PROCES OF ORDER FAILED')
-      return res.redirect('/cart')
-       
+      return res.redirect('/cart') 
     }
     console.log(result)
     req.flash('msg','ORDER SUCCESS')
     req.session.cart = null
-    return res.redirect('/store')
-    
-  })
+    return res.redirect('/store') 
+})
 })
 module.exports = router

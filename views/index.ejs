@@ -153,7 +153,8 @@
                 </a>
             </div>
         </div>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
 
             </span>
@@ -168,7 +169,24 @@
             </ul>
         </div>
     </nav>
-    <div id="carouselExampleControls" class="carousel slide container-fluid" data-ride="carousel">
+
+    <% if (msg.length > 0) { %>
+    <div class="d-flex justify-content-center">
+        <div class="alert alert-primary text-center container-fluid"
+            style="position: fixed; width: 90%; top: 90px; z-index: 1;">
+            <strong style="text-transform: uppercase;"><%= msg %></strong>
+        </div>
+    </div>
+    <% }  %>
+    <% if (msg_failed.length > 0) { %>
+    <div class="d-flex justify-content-center">
+        <div class="alert alert-danger text-center container-fluid"
+            style="position: fixed; width: 90%; top: 90px; z-index: 1;">
+            <strong style="text-transform: uppercase;"><%= msg_failed %></strong>
+        </div>
+    </div>
+    <% }  %>
+    <div id="carouselExampleControls" class="carousel slide carousel-fade container-fluid" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-10" src="/public/Image/beylands.jpg" alt="First slide">
@@ -278,13 +296,30 @@
                     <div class="service-form-message container-fluid text-center">
                         <hr>
                         <h2>Why choose Beylands for cleaning services?</h2>
-                        <br>
-                        <h4>Offers Professional cleaning</h4>
-                        <br>
-                        <h4>Affordable price</h4>
-                        <br>
-                        <a href="/services">Click here for more info</a>
 
+                        <div class="d-flex align-items-start flex-column">
+                            <h4 class="text-light">Offers Professional cleaning</h4>
+                            <h4 class="text-dark" style="font-size: 19px;">
+                                We provide professional cleaning services that will
+                                <br>give your home a
+                                fresh new look and feel that you deserve,
+                                <br>especially after a long day of work.</h4>
+
+                            <h4 class="text-light text-center">Affordable price</h4>
+                            <h4 class="text-dark" style="font-size: 19px;">
+                                The cost of your house cleaning ultimately
+                                <br>depends on a number of variables, including
+                                <br>the number of rooms, square footage and the type
+                                <br>of service you choose. For the most
+                                <br>accurate cleaning estimate, we need
+                                <br>to know more about your house cleaning needs.
+                                <br>Contact us for a free estimate.
+                            </h4>
+                            <br>
+                            <a href="/services">
+                                <button type="submit" class="btn btn-primary">Click here for more info</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -294,32 +329,33 @@
                         <hr>
                         <h2>Do you need Cleaning Services?</h2>
                         <h5>No time to clean up because of hectic schedule? Kindly contact us.</h5>
-                        <form action="/send-service-confirmation" method="POST" autocomplete="off">
+                        <form action="/services/send-service-confirmation-home" method="POST" autocomplete="off">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name"
-                                    name="name" style="border-radius: 0;">
+                                    name="name">
                             </div>
                             <div class="form-group">
                                 <input type="email" class=" form-control" id="exampleInputPassword1"
-                                    placeholder="Email Address" name="email" style="border-radius: 0;">
+                                    placeholder="Email Address" name="email">
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Mobile Number" name="number" maxlength="11">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Mobile Number" name="number" style="border-radius: 0;">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Address of Place to be Clean" name="address" style="border-radius: 0;">
+                                    placeholder="Address of Place to be Clean" name="address">
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
-                                    placeholder="Package / Message" name="message" style="border-radius: 0;"></textarea>
+                                    placeholder="Package / Message" name="message"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <hr>
-                        </form>
 
+
+                        </form>
                     </div>
+                    <hr>
                 </div>
             </div>
 
@@ -355,38 +391,57 @@
         </div>
 
         <!-- footer -->
-        <div class="footer">
-            <div class="footer-left" style="margin: 2rem;">
-                <h5>ABOUT US</h5>
-                <hr>
-                <h5 style="color: rgba(0, 0, 0, 0.597);">Beylands stands for the first letter of the family’s name
-                    and last name, Bea, Erin,
-                    Ycel, Luciana, Ariane, Norberto Delos Santos. The business started as...<a href="/about"
-                        style="text-decoration: none;color: rgb(48, 159, 243)">read
-                        more</a>
-                </h5>
+        <div class="footer container-fluid">
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="footer-left" style="margin: 2rem;">
+                        <h5>ABOUT US</h5>
+                        <hr>
+                        <h5 style="color: rgba(0, 0, 0, 0.597);">Beylands stands for the first letter of the
+                            family’s
+                            name
+                            and last name, Bea, Erin,
+                            Ycel, Luciana, Ariane, Norberto Delos Santos. The business started as...<a href="/about"
+                                style="text-decoration: none;color: rgb(48, 159, 243)">read
+                                more</a>
+                        </h5>
+                    </div>
+                </div>
             </div>
-            <div class="footer-social" style="margin: 2rem;">
-                <h5>SOCIAL</h5>
-                <hr>
+            <div class="row container-fluid">
+                <div class="col text-center container-fluid">
+                    <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="footer-social" style="margin: 2rem;">
+                            <h5>SOCIAL</h5>
+                            <hr>
+                            <a href="https://web.facebook.com/beylandssales/">
+                                <img src="/public/Image/facebook.png" alt="facebook" style="width:40px; height:40px">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center container-fluid">
+                    <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="footer-certificate" style="margin: 2rem;">
+                            <h5>LICENSES AND PERMITS</h5>
+                            <hr>
+                            <img src="/public/Image/dti.png" alt="DTI" class="img-fluid"
+                                style="width:100px; height:100px">
+                            <img src="/public/Image/proc.png" alt="Procuremnet Service" class="img-fluid"
+                                style="widows: 100px; height:100px">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-                <a href="https://web.facebook.com/beylandssales/">
-                    <img src="/public/Image/facebook.png" alt="facebook" style="width:40px; height:40px">
-                </a>
-            </div>
-            <div class="footer-certificate" style="margin: 2rem;">
-                <h5>LICENSES AND PERMITS</h5>
-                <hr>
-                <img src="/public/Image/dti.png" alt="DTI" style="width:100px; height:100px">
-                <img src="/public/Image/proc.png" alt="Procuremnet Service" style="widows: 100px; height:100px">
+                    <div class="footer-bottom container-fluid text-center">
+                        <h1>BEY<span>LANDS</span></h1>
+                        <br>
+                        © Copyright 2020 Beylands Sales and Service Specialist | All Rights Reserved
+                    </div>
 
+                </div>
             </div>
-            <div class="footer-bottom">
-                <h1>BEY<span>LANDS</span></h1>
-                <br>
-                © Copyright 2020 Beylands Sales and Service Specialist | All Rights Reserved
-            </div>
-
         </div>
     </div>
     <script src="/public/js/index.js"></script>

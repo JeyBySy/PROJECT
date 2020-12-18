@@ -18,85 +18,7 @@
 </head>
 
 <body>
-    <!-- MODAL FOR VIEWING THE CART -->
-
-    <!-- <div class="modal fade" tabindex="1" role="dialog" id="cartModal" style="overflow: hidden;">
-        <div class="modal-dialog" style="max-width: 900px;" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">CART</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: black;">&times;</span>
-                    </button>
-                </div>
-                <% if(session.cart && session.cart.totalPrice != 0){ %>
-                <div class="modal-body">
-                    <div class="modal-body-content" style="height: 70vh; overflow-y: auto;">
-                        <div class="cart-row" style="background: white; position: absolute; width: 95%; top: 0px;">
-                            <span class="cart-img cart-header cart-column">Image</span>
-                            <span class="cart-productName cart-header cart-column">Product Name</span>
-                            <span class="cart-price cart-header cart-column">Price</span>
-                            <span class="cart-quantity cart-header cart-column">Quantity</span>
-                            <span class="cart-total cart-header cart-column">Total</span>
-                            <span class="cart-action cart-header cart-column">Action</span>
-                        </div>
-                        <% products.forEach(function(items){%>
-                        <div class="cart-items">
-                            <div class="cart-row" style="margin-top: 3rem;">
-                                <span class="cart-column-items cart-item-items"><img
-                                        src="/public/uploads/<%= items.item.image%>" alt=""></span>
-                                <span class="cart-column-items"><%= items.item.name%></span>
-                                <span class="cart-column-items">₱ <%= items.item.price%>.00</span>
-                                <span class="cart-column-items"><%= items.qty %></span>
-                                <span class="cart-column-items">₱ <%= items.price%>.00</span>
-                                <span class="cart-column-items">
-                                    <form action="/store/remove/<%= items.item._id %>">
-                                        <button type="submit">fdf</button>
-                                    </form>
-
-                                </span>
-                            </div>
-                        </div>
-                        <%})%>
-                    </div>
-                </div>
-                <% }else{ %>
-                <div class="modal-body">
-                    <div class="modal-body-content" style="overflow-y: auto;">
-                        <div class="cart-row">
-                            <span class="cart-img cart-header cart-column">Image</span>
-                            <span class="cart-productName cart-header cart-column">Product Name</span>
-                            <span class="cart-price cart-header cart-column">Price</span>
-                            <span class="cart-quantity cart-header cart-column">Quantity</span>
-                            <span class="cart-total cart-header cart-column">Total</span>
-                            <span class="cart-action cart-header cart-column">Action</span>
-                        </div>
-
-                        <div class="cart-items">
-                            <center>
-                                <p class="no-items alert alert-warning">your shopping cart is empty</p>
-                            </center>
-                        </div>
-
-                    </div>
-                </div>
-                <% } %>
-
-                <% if(session.cart){ %>
-                <div class="modal-footer ">
-                    <div class="mtotal">
-                        <strong class="modal-footer-total ">Total:</strong>
-                        <span class="modal-footer-price ">₱<%=session.cart.totalPrice%>.00</span>
-                    </div>
-
-                    <button type="button" class="btn btn-primary" id="orderID">Checkout</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-                <%}%>
-            </div>
-        </div>
-    </div> -->
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="logo">
             <div class="logo-word">
                 <a href="/">
@@ -105,9 +27,9 @@
             </div>
         </div>
         <div class="btn-store">
-            <ul class="navbar-nav m-auto">
-                <form class="form-inline nav-form">
-                    <div class="form-group">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group container-fluid" style="margin: 1rem;">
                         <select class="form-control" id="active" name="active">
                             <option value="1">ALL</option>
                             <option value="2">Janitorial Supplies</option>
@@ -118,33 +40,63 @@
 
                         </select>
                     </div>
-
-                    <div class="active-cyan-1 mb-0">
-                        <input class="form-control  form-control-l ml-3 w-90" type=" text" placeholder="Search"
-                            aria-label="Search" style="width:20rem;">
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="search container-fluid" style="margin:1rem;width: 100%; padding: 0;">
+                        <input class="form-control form-control-l ml-3 w-90" type="09 text" placeholder="Search"
+                            aria-label="Search" style="width:350px;" id="searchID">
                     </div>
-                    <a href="/cart">
-                        <button style="margin-left: 1rem;" type="button" class="btn" id="cart_icon">
-                            <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:30px"></i>
-                            <% if(session.cart) { %>
-                               <% if(session.cart.totalQty <= 0) { %>
-                            <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
-                            <% }else {%>
-                             <span class="badge float-badge"><%= session.cart.totalQty %></span>
-                            <%}%>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="cart_btn container-fluid">
+                        <a href="/cart">
+                            <button style="margin-left: 1rem;" type="button" class="btn" id="cart_icon">
+                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:30px"></i>
+                                <% if(session.cart) { %>
+                                <% if(session.cart.totalQty <= 0) { %>
+                                <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
+                                <% }else {%>
+                                <span class="badge float-badge"><%= session.cart.totalQty %></span>
+                                <%}%>
+                    <% } %>
+                            </button>
+                        </a>
+                    </div>
+                </div>
 
-                            <% } %>
-                        </button>
-                    </a>
-                </form>
-            </ul>
+            </div>
+        </div>
+        <div class="search-mobile">
+            <input class="form-control" type="09 text" placeholder="Search" aria-label="Search" id="search-mobileID">
         </div>
     </nav>
-
+    <!-- MOBILE -->
     <div class="btn-store-mobile">
-        <a href="#" class="nav-link text-light">ALL</a>
-        <a href="#" class="nav-link text-light">ALL</a>
-        <a href="#" class="nav-link text-light">ALL</a>
+        <div class="form-group category text-center">
+            <select class="form-control" id="active" name="active">
+                <option value="1">ALL</option>
+                <option value="2">Janitorial Supplies</option>
+                <option value="3">Commercial Products</option>
+                <option value="4">Cleaning Chemicals</option>
+                <option value="5">Cleaning Equipments</option>
+                <option value="6">Organic Products</option>
+            </select>
+        </div>
+        <div class="cart_btn">
+            <a href="/cart">
+                <button type="button" class="btn" id="cart_icon">
+                    <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:25px"></i>
+                    <% if(session.cart) { %>
+                    <% if(session.cart.totalQty <= 0) { %>
+                    <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
+                    <% }else {%>
+                    <span class="badge float-badge"><%= session.cart.totalQty %></span>
+                    <%}%>
+                    <% } %>
+                </button>
+            </a>
+        </div>
+
     </div>
 
     <!-- MODAL FOR SHOWING ITEM DETAILS -->
@@ -172,29 +124,27 @@
             </div>
         </div>
     </div>
-    <div class="list-store-wrapper">
+    <div class="list-store-wrapper container-fluid">
         <% if (msg.length > 0) { %>
-        <div class="alert alert-success" role="alert" style="margin-top:1rem; margin-bottom: 1rem; text-align: center;">
+        <div class="alert alert-success" role="alert">
             <strong> <%= msg %></strong>
         </div>
         <% }  %>
         <% if (maxLimit.length > 0) { %>
-        <div class="alert alert-danger" role="alert"
-            style="margin-top:0.5rem; margin-bottom: 1rem; text-align: center;">
+        <div class="alert alert-danger" role="alert">
             <strong> <%= maxLimit %></strong>
         </div>
         <% }  %>
         <!-- ITEMS -->
-        <div class="shop-items">
-
+        <div class="shop-items container-fluid text-center">
             <%  db.forEach(function (item){ %>
             <form action="/store/add-to-cart/<%= item.id %>" method="POST">
-                <div class="shop-item" data-item-id=" <%= item.id %>">
+                <div class="shop-item" data-item-id="<%= item.id %>">
+                    <!--USE THIS FOR GETTING THE NAMES IN THE CART-->
                     <center>
                         <img class="shop-item-image" src="/public/uploads/<%= item.image %>" data-toggle="modal"
                             data-target="#addModal" name="jherlofds">
                     </center>
-
                     <div class="shop-item-details">
                         <span class="shop-item-name"><%= item.name %></span>
                         <span class="shop-item-price">₱<%= item.price %>.00</span>
@@ -205,13 +155,13 @@
                         <div class="p-s">
                             <input type="number" class="cart-stocks form-control" min='1' max="<%= item.stocks %>"
                                 value='1' name="quantity">
-                            <button data-item="<%= JSON.stringify(item) %> " class="btn shop-item-button" type="submit"
-                                style="background: #f7912b; border:0;" id="addToCart">
+                            <button class="btn shop-item-button" type="submit" style="background: #f7912b; border:0;">
                                 ADD TO CART
                             </button>
                         </div>
 
                     </div>
+
                 </div>
             </form>
             <% }) %>
