@@ -1,0 +1,143 @@
+
+html{
+    overflow-x: hidden;
+}
+.navbar {
+    width: 100%;
+    height: 95px;
+    padding: 0%;
+    position: fixed;
+}
+
+.logo {
+    margin: auto;
+    margin-top: 0;
+}
+
+.total-section {
+    position: fixed;
+    width: 80%;
+    margin: auto auto auto 10%;
+    background: rgb(255, 255, 255);
+    bottom: 0.2rem;
+    padding: 1.2rem;
+    box-shadow: #39ca74 0px 0px 5px 1px;
+}
+.no-items {
+    width: 80%;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 15vh;
+    font-weight: 700;
+    border-radius: 5px;
+     padding: 0.5rem;
+}
+.cart-content {
+    margin: auto;
+    width: 80%;
+    margin-top: 150px;
+    margin-bottom: 10%;
+    position: relative;
+ 
+}
+
+.cart-row-header {
+    position: fixed;
+    width: 80%;
+    top: 95px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    color: black;
+    margin: auto auto auto 10%;
+    background: white;
+    z-index: 2;
+    padding: 0;
+     font-family: 'Poppins',
+     sans-serif;
+}
+
+.cart-row-header span {
+    color: black;
+}
+
+.cart-item-items img {
+    max-width:60px;
+}
+
+.cart-column-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    font-size: 20px;
+    width: 100%;
+    position: relative;
+}
+.cart-row{
+    width: 100%;
+    height: fit-content;
+    padding:0;
+  
+}
+
+.modal-footer {
+    border: none;
+}
+.alert{
+    position: relative;
+    margin-top: 85px;
+}
+
+@media screen and (min-width: 180px) and (max-width: 875px) and (max-height: 900px) {
+    .cart-content{
+        width: 100%;
+        height: fit-content;
+        margin: 10rem auto 10rem auto;
+        padding: 0%;
+    }
+    .cart-row-header{
+        width: 100%;
+        margin: auto auto auto auto;
+    }
+    .total-section{
+        position: fixed;
+        width: 100%;
+        margin: auto auto auto auto;
+        background: rgb(255, 255, 255);
+        bottom: 0.2rem;
+        padding: 1.2rem;
+        box-shadow: #39ca74 0px 0px 5px 1px;
+        }
+    .alert{
+        width: 100%;
+        margin: auto;
+   position: relative;
+       margin-top: 5rem;
+       text-align: center;
+       width: 100%;
+       transform: (-50px);
+    }
+    .no-items {
+        width: 90%;
+        text-transform: uppercase;
+        margin-top: 145px;
+        font-weight: 700;
+        
+    }
+    .modal-backdrop{
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background: rgb(255, 255, 255);
+    }
+    .modal{
+        margin-top: 95px;
+    }
+    .modal-footer-price{
+        font-size: 35px;
+    }
+    html {
+        overflow-x: auto;
+    }
+
+}

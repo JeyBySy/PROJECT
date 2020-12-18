@@ -59,25 +59,26 @@ router.get('/remove/:id',async(req,res,next)=>{
 
 router.post('/place-order',(req,res)=>{
    var cart = new Cart(req.session.cart ? req.session.cart : {})
-  var order = new Orders({
-    cart:cart,
-    name:req.body.name,
-
-    email:req.body.email,
-    contact:req.body.mobileNumber,
-    address:req.body.email,
-    receive:req.body.receiveOption
-  })
-  order.save(function(err,result){
-     if(err){
-      console.log(err)
-      req.flash('msg','PROCES OF ORDER FAILED')
-      return res.redirect('/cart') 
-    }
-    console.log(result)
-    req.flash('msg','ORDER SUCCESS')
-    req.session.cart = null
-    return res.redirect('/store') 
-})
+   console.log(req.body)
+//   var order = new Orders({
+//     cart:cart,
+//     name:req.body.name,
+//     email:req.body.email,
+//     contact:req.body.mobileNumber,
+//     address:req.body.email,
+//     receive:req.body.receiveOption
+//   })
+  
+//   order.save(function(err,result){
+//      if(err){
+//       console.log(err)
+//       req.flash('msg','PROCES OF ORDER FAILED')
+//       return res.redirect('/cart') 
+//     }
+//     console.log(result)
+//     req.flash('msg','ORDER SUCCESS')
+//     req.session.cart = null
+//     return res.redirect('/store') 
+// })
 })
 module.exports = router

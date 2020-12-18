@@ -16,72 +16,8 @@
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/shop-style.css">
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
-    <style>
-        .navbar {
-            height: 95px;
-            padding: 0%;
-
-        }
-
-        .logo {
-            margin: auto;
-            margin-top: 0;
-        }
-
-        .total-section {
-            position: fixed;
-            width: 80%;
-            margin: auto auto auto 10%;
-            background: rgb(255, 255, 255);
-            bottom: 0.2rem;
-            padding: 1.2rem;
-            box-shadow: #39ca74 0px 0px 5px 1px;
-        }
-
-        .cart-content {
-            margin: auto;
-            width: 80%;
-            margin-top: 11%;
-            margin-bottom: 10%;
-
-        }
-
-        .cart-row-header {
-            position: fixed;
-            width: 80%;
-            top: 95px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            color: black;
-            margin: auto auto auto 10%;
-            background: white;
-            z-index: 2;
-        }
-
-        .cart-row-header span {
-            color: black;
-        }
-
-        .cart-item-items img {
-            max-width: 45%;
-        }
-
-        .cart-column-items {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 1rem;
-            font-size: 20px;
-        }
-
-        .modal-footer {
-            border: none;
-        }
-
-        .cart-row {
-            margin-top: 90px;
-        }
-    </style>
+    <link rel="stylesheet" href="/public/css/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -114,7 +50,7 @@
                                 </div>
                                 <%}%>
                             </div>
-                       <hr>
+                            <hr>
                         <div class="form-group">
                            <label for="order-detail">Order Details</label>                                                                             
                         </div>
@@ -149,88 +85,94 @@
                            </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary" id="orderID">PLACE ORDER</button>
-                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             </div>
                         </form>
                     </div>
                 </div>
-               
-
             </div>
         </div>
     </div>
     <nav class="navbar navbar-expand-md">
-        <div class="logo">
-            <div class="logo-word">
-                <a href="/store">
-                    <h1>BEY<span>LANDS</span>
-                        <center>
-                            <sup> CART</sup>
-                        </center>
-                    </h1>
-                </a>
-            </div>
+     <div class="logo">
+         <div class="logo-word">
+             <a href="/store">
+                 <h1>BEY<span>LANDS</span>
+                     <center>
+                         <sup> CART</sup>
+                     </center>
+                 </h1>
+             </a>
+         </div>
         </div>
     </nav>
-     
-    <div class="cart-row-header">
-        <span class="cart-img cart-header cart-column">Image</span>
-        <span class="cart-productName cart-header cart-column">Product Name</span>
-        <span class="cart-price cart-header cart-column">Price</span>
-        <span class="cart-quantity cart-header cart-column">Quantity</span>
-        <span class="cart-total cart-header cart-column">Total</span>
-        <span class="cart-action cart-header cart-column">Action</span>
-    </div>
-     <% if(session.cart && session.cart.totalPrice != 0 && msg && products){ %>
-                                <div class="cart-content">
-                                    <% if (msg.length > 0) { %>
-                                    <div class="alert alert-danger" role="alert"
-                                        style="z-index: 1; padding-top:1.5rem; text-align: center;">
-                                        <strong> <%= msg %></strong>
-                                    </div>
-                                    <% } %>
-                                    <% products.forEach(function(items){%>
-                                    <div class="cart-row">
-                                        <span class="cart-column-items cart-item-items">
-                                            <img src="/public/uploads/<%= items.item.image%>" alt="">
-                                        </span>
-                                        <span class="cart-column-items"><%= items.item.name%></span>
-                                        <span class="cart-column-items">₱ <%= items.item.price%>.00</span>
-                                        <span class="cart-column-items manageItems" id="manageItem">
-                                            <a href="/store/reduce/<%=items.item._id%>">
-                                                <i class="fa fa-minus" style="margin-right:1rem;" id="minusID"></i>
-                                            </a>
-                                            <%= items.qty %>
+      <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <div class="cart-row-header">
+                  <span class="cart-img cart-header cart-column">Image</span>
+                  <span class="cart-productName cart-header cart-column">Product Name</span>
+                  <span class="cart-price cart-header cart-column">Price</span>
+                  <span class="cart-quantity cart-header cart-column">Quantity</span>
+                  <span class="cart-total cart-header cart-column">Total</span>
+                  <span class="cart-action cart-header cart-column">Action</span>
+              </div>
+          </div>
+      </div>
+      <% if(session.cart && session.cart.totalPrice != 0 && msg && products){ %>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <div class="cart-content">
+                                            <% if (msg.length > 0) { %>
+                                            <div class="alert alert-danger" role="alert"
+                                                style="z-index: 1; padding-top:1rem; text-align: center;">
+                                                <strong> <%= msg %></strong>
+                                            </div>
+                                            <% }%>
+                                            <% products.forEach(function(items){%>
+                                            <div class="cart-row">
+                                                <span class="cart-column-items cart-item-items">
+                                                    <img src="/public/uploads/<%= items.item.image%>" alt=""
+                                                        class="img-fluid">
+                                                </span>
+                                                <span class="cart-column-items"><%= items.item.name%></span>
+                                                <span class="cart-column-items">₱ <%= items.item.price%>.00</span>
+                                                <span class="cart-column-items manageItems" id="manageItem">
+                                                    <a href="/store/reduce/<%=items.item._id%>">
+                                                        <i class="fa fa-minus" style="margin-right:1rem;"
+                                                            id="minusID"></i>
+                                                    </a>
+                                                    <%= items.qty %>
 
-                                            <a href="/store/addOne/<%=items.item._id%>">
-                                                <i class="fa fa-plus" style="margin-left:1rem;" id="plusID"></i>
-                                            </a>
-                                        </span>
-                                        <span class="cart-column-items">₱ <%= items.price%>.00</span>
-                                        <span class="cart-column-items">
-                                            <form action="/store/remove/<%= items.item._id %>">
-                                                <button class='btn' type="submit" id="removeBTN"
-                                                    style="border: none; font-size:30px;">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>
-                                            </form>
+                                                    <a href="/store/addOne/<%=items.item._id%>">
+                                                        <i class="fa fa-plus" style="margin-left:1rem;" id="plusID"></i>
+                                                    </a>
+                                                </span>
+                                                <span class="cart-column-items">₱ <%= items.price%>.00</span>
+                                                <span class="cart-column-items">
+                                                    <a href="/store/remove/<%= items.item._id %>">
+                                                        <button class='btn' type="submit" id="removeBTN"
+                                                            style="border: none; font-size:30px; width: 100%; margin: auto;">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    </a>
 
-                                        </span>
+                                                </span>
+                                            </div>
+                                            <%})%>
+                                        </div>
                                     </div>
-
-                                    <%})%>
-                                    <% }else{ %>
-                                    <br>
-                                    <br>
-                                    <div class="cart-items">
-                                        <center>
-                                            <p class="no-items alert alert-warning">your shopping cart is empty
-                                            </p>
-                                        </center>
-                                    </div>
-                                    <% } %>
                                 </div>
-                                <div class="total-section">
+                                <%}else{ %>
+                                <br>
+                                <br>
+                                <div class="cart-items">
+                                    <center>
+                                        <p class="no-items alert-warning">your shopping cart is empty
+                                        </p>
+                                    </center>
+                                </div>
+                                <% } %>
+                                <div class="total-section container-fluid">
                                     <% if(session.cart && session.cart.totalPrice != 0){ %>
                                     <div class="modal-footer ">
                                         <div class="mtotal">
@@ -238,8 +180,9 @@
                                             <span class="modal-footer-price">₱<%=session.cart.totalPrice%>.00</span>
                                         </div>
                                         <button type="button" class="btn btn-primary checkoutBTN" id="orderID"
-                                            data-toggle="modal" data-target="#checkoutModal" data-backdrop="static"
-                                            data-keyboard="false">Checkout</button>
+                                            data-toggle="modal" data-target="#checkoutModal">Checkout</button>
+                                        <!-- FOR NOT CLOSING IF CLICK OUTSIDE -->
+                                        <!-- data-backdrop='static' data-keyboard="false" -->
 
                                     </div>
                                     <%} else{%>
