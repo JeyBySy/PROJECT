@@ -22,7 +22,7 @@
 
 <body>
     <!-- MODAL FOR CHECKOUT -->
-    <div class="modal fade" tabindex="1" role="dialog" id="checkoutModal" style="overflow: hidden;">
+    <div class="modal fade" tabindex="1" role="dialog" id="checkoutModal" style="margin-bottom:5rem;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -37,14 +37,32 @@
                     <div class="modal-body-content">
                         <form action="/store/place-order" method="POST" autocomplete="off">
                             <div class="form-group">
+                                <div class="product-holder">
+                                    <% products.forEach(function(items){%>
+
+                                    <div class="p-s" style="width: 80%; margin: auto;">
+                                        <input type="text" class="p form-control" name="productName"
+                                            value="<%= items.item.name%>">
+
+                                        <input type="text" class="p form-control" style="text-align:center ;"
+                                            name="productQty" value="<%= items.qty %>">
+                                    </div>
+
+                                    <%})%>
+                                </div>
                                 <% if(session.cart){ %>
-                                <div class="modal-footer ">
-                                    <div class="mtotal">
-                                        <div class="p-s">
-                                            <strong class="modal-footer-total"
-                                                style="margin: auto auto auto 0;">Total</strong>
-                                            <span class="modal-footer-price"
-                                                name="totalPrice">₱<%=session.cart.totalPrice%>.00</span>
+                                <hr>
+                                <div class="modal-footer">
+                                    <div class="mtotal container-fluid">
+
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                <strong class="modal-footer-total">Total</strong>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                <span class="modal-footer-price" name="totalPrice"
+                                                    style="text-align: center;">₱<%=session.cart.totalPrice%>.00</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +160,6 @@
                                                             id="minusID"></i>
                                                     </a>
                                                     <%= items.qty %>
-
                                                     <a href="/store/addOne/<%=items.item._id%>">
                                                         <i class="fa fa-plus" style="margin-left:1rem;" id="plusID"></i>
                                                     </a>
@@ -180,7 +197,9 @@
                                             <span class="modal-footer-price">₱<%=session.cart.totalPrice%>.00</span>
                                         </div>
                                         <button type="button" class="btn btn-primary checkoutBTN" id="orderID"
-                                            data-toggle="modal" data-target="#checkoutModal">Checkout</button>
+                                            data-toggle="modal" data-target="#checkoutModal">
+                                            Checkout
+                                        </button>
                                         <!-- FOR NOT CLOSING IF CLICK OUTSIDE -->
                                         <!-- data-backdrop='static' data-keyboard="false" -->
 

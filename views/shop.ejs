@@ -137,6 +137,7 @@
         <% }  %>
         <!-- ITEMS -->
         <div class="shop-items container-fluid text-center">
+            <%if(db.length > 0){%>
             <%  db.forEach(function (item){ %>
             <form action="/store/add-to-cart/<%= item.id %>" method="POST">
                 <div class="shop-item" data-item-id="<%= item.id %>">
@@ -146,7 +147,7 @@
                             data-target="#addModal" name="jherlofds">
                     </center>
                     <div class="shop-item-details">
-                        <span class="shop-item-name"><%= item.name %></span>
+                        <input type="text" name="name" class="shop-item-name" value="<%= item.name %>">
                         <span class="shop-item-price">₱<%= item.price %>.00</span>
                         <div class="p-s">
                             <span class="shop-item-stocks">Stocks:</span>
@@ -164,7 +165,17 @@
 
                 </div>
             </form>
+
             <% }) %>
+            <%}else{%>
+
+            <center>
+                <br>
+                <p class="text" style="font-size: 20px;">NO PRODUCT AVAILABLE
+                </p>
+            </center>
+
+            <%}%>
 
         </div>
     </div>

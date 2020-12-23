@@ -165,6 +165,7 @@ body{
 .p-s {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    
 }
 .float-badge{
     color: black;
@@ -187,6 +188,12 @@ body{
     color: rgb(0, 0, 0);
     text-align: center;
     text-transform: capitalize;
+}
+.shop-item-name{
+    border: transparent;
+    background: transparent;
+    cursor: default;
+    pointer-events: none;
 }
 .shop-item-price{
     color: green;

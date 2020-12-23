@@ -53,6 +53,7 @@ app.use(cookieParser())
 
 app.use((req,res,next)=>{
   res.locals.session = req.session
+  // res.locals.cart = new Cart(req.session.cart || []);
   next()
 })
 
@@ -73,21 +74,31 @@ app.get('/store',addToCart,async(req,res)=>{
   res.render('shop.ejs',{msg: req.flash('msg'), maxLimit: req.flash('maxLimit'),db,products:cart.generateArray(),totalPrice:cart.totalPrice})
   return
 })
-app.get('/cart',(req,res)=>{
+app.get('/cart',async(req,res)=>{
+   const db = await Products.find({})
   if(!req.session.cart){
     return  res.render('cart.ejs',{products:null,msg: req.flash('msg')})
   }
    var cart = new Cart(req.session.cart)
-  res.render('cart.ejs',{products:cart.generateArray(),totalPrice:cart.totalPrice, msg: req.flash('msg')})
+  res.render('cart.ejs',{
+    products:cart.generateArray(),
+    totalPrice:cart.totalPrice,
+    msg: req.flash('msg'),
+    db
+  })
   return
 })
 
 app.get('/checkout',(req,res)=>{
+  
   if(!req.session.cart){
       return  res.redirect('/cart')
   }
   var cart = new Cart(req.session.cart)
-  res.render('cart.ejs',{products:cart.generateArray(),totalPrice:cart.totalPrice, msg: req.flash('msg')})
+  res.render('cart.ejs',{
+    products:cart.generateArray(),
+    totalPrice:cart.totalPrice, 
+    msg: req.flash('msg')})
   return
 })
 

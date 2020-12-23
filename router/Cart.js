@@ -3,9 +3,9 @@ module.exports = function Cart(oldCart){
     this.totalQty = oldCart.totalQty || 0;
     this.totalPrice = oldCart.totalPrice || 0;
 
-    this.add = async function(item, id,QTY){
+    this.add = async function(item, id,QTY,name){
       
-        var storedItem = this.items[id]
+        var storedItem = this.items[id] //name
        
         if(!storedItem){
             storedItem = this.items[id] = {item:item, qty:0,price:0}

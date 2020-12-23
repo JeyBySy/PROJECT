@@ -3,11 +3,17 @@ const Schema = mongoose.Schema;
 const projectSchema= new Schema({
     cart:{
         type:Object,
-       
+        required:true
     },
     name:{
         type:String,
         required:true
+    },
+    productName:{
+        type:Array
+    },
+    productQty:{
+        type:Array
     },
     email:{
         type:String,
