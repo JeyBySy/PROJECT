@@ -13,9 +13,11 @@ let port = process.env.PORT || 3001;
 mongoose.connect('mongodb+srv://admin123:zRIkqj9Pk8Uz2A5I@cluster0.p1ih6.mongodb.net/project', {useNewUrlParser: true,useUnifiedTopology: true }) 
 // mongodb+srv://admin123:zRIkqj9Pk8Uz2A5I@cluster0.p1ih6.mongodb.net/test mongodb://localhost/project
 const Products = require('./models/model')
-// const Cart_Session = require('./models/cart-session')
+const Category = require('./models/category-model')
+
 const addToCart = require('./router/add-to-cart')
 const send_confirm = require('./router/send-confirm')
+
 
 const session = require('express-session');
 var cookieParser = require('cookie-parser')
@@ -64,14 +66,21 @@ app.get('/',(req,res)=>{
 
 //Rendering store.html
 app.get('/store',addToCart,async(req,res)=>{
-  // const cart = await Cart_Session.find({cartID:req.session},{})
+  console.log(req.query)
   const db = await Products.find({})
- 
+  const category = await Category.find({})
   if(!req.session.cart){
-    return  res.render('shop.ejs',{db,products:null, msg: req.flash('msg'),maxLimit: req.flash('maxLimit')})
+    return  res.render('shop.ejs',{db,category,products:null, msg: req.flash('msg'),maxLimit: req.flash('maxLimit')})
   }
    var cart = new Cart(req.session.cart)
-  res.render('shop.ejs',{msg: req.flash('msg'), maxLimit: req.flash('maxLimit'),db,products:cart.generateArray(),totalPrice:cart.totalPrice})
+  res.render('shop.ejs',{
+    db,
+    category,
+    msg: req.flash('msg'), 
+    maxLimit: req.flash('maxLimit'),
+    products:cart.generateArray(),
+    totalPrice:cart.totalPrice
+  })
   return
 })
 app.get('/cart',async(req,res)=>{
@@ -88,7 +97,6 @@ app.get('/cart',async(req,res)=>{
   })
   return
 })
-
 app.get('/checkout',(req,res)=>{
   
   if(!req.session.cart){

@@ -1,13 +1,13 @@
 const express = require('express')
 const products = require('./../models/model')
 const Orders = require('./../models/orders-model')
+const Category = require('./../models/category-model')
 // const Cart_Orders = require('./../models/cart-model')
 const Cart = require('./Cart')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const router = express.Router()
 router.use(express.urlencoded({extended:false}))
-
 
 router.post('/add-to-cart/:id',async(req,res)=>{
   // console.log(req.body.quantity)
@@ -67,7 +67,7 @@ router.post('/place-order',(req,res)=>{
     productName:req.body.productName,
     productQty:req.body.productQty,
     contact:req.body.mobileNumber,
-    address:req.body.email,
+    address:req.body.shippingAddress,
     receive:req.body.receiveOption
   })
   
@@ -88,4 +88,25 @@ router.post('/place-order',(req,res)=>{
   }
 })
 
+router.get('/search/:search',async(req,res)=>{
+  console.log(req.params.search)
+  const search = req.params.search
+  const product = await products.find({name:search})
+
+ 
+  const category = await Category.find({})
+  if(!req.session.cart){
+    return  res.render('shop.ejs',{category,product,products:null, msg: req.flash('msg'),maxLimit: req.flash('maxLimit')})
+  }
+   var cart = new Cart(req.session.cart)
+  res.render('shop.ejs',{
+    category,
+    product,
+    msg: req.flash('msg'),  
+    maxLimit: req.flash('maxLimit'),
+    products:cart.generateArray(),
+    totalPrice:cart.totalPrice
+  })
+  return
+})
 module.exports = router

@@ -30,6 +30,9 @@ const projectSchema= new Schema({
     receive:{
         type:String,
          require:true
+    },
+    status:{
+        type:String
     }
     
 });
