@@ -66,7 +66,7 @@ app.get('/',(req,res)=>{
 
 //Rendering store.html
 app.get('/store',addToCart,async(req,res)=>{
-  console.log(req.query)
+  // console.log(req.query)
   const db = await Products.find({})
   const category = await Category.find({})
   if(!req.session.cart){

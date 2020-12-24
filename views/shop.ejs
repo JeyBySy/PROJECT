@@ -28,18 +28,17 @@
         </div>
         <div class="btn-store">
             <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group container-fluid" style="margin: 1rem;">
-
                         <select class="form-control" id="active" name="active">
                             <option value="All" selected>All</option>
-                            <%if(category.length >= 0){%>
-                            <%category.forEach(function(item){%>
-                            <option value=" <%=item.category%>"> <%=item.category%></option>
-                            <%})%>
-                            <%}else{%>
+                            <%#if(category.length >= 0){%>
+                            <%#category.forEach(function(item){%>
+                            <option value=" <%#=item.category%>"> <%#=item.category%></option>
+                            <%#})%>
+                            <%#}else{%>
                             <option value="" selected disabled>Category</option>
-                            <%}%>                           
+                            <%#}%>                           
                         </select>                        
                     </div>
                 </div>
@@ -49,21 +48,22 @@
                         <input class="form-control form-control-l ml-3 w-90" type="09 text" placeholder="Search"
                             aria-label="Search" style="width:350px;" id="searchID">
                     </div>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                </div> -->
+                <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 col-xl-4"> -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="cart_btn container-fluid">
                         <a href="/cart">
-                            <button style="margin-left: 1rem;" type="button" class="btn" id="cart_icon">
+                            <button type="button" class="btn" id="cart_icon">
                                 <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:30px"></i>
                                 <% if(session.cart) { %>
-                            <% if(session.cart.totalQty <= 0) { %>
-                            <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
-                            <% }else {%>
-                            <span class="badge float-badge"><%= session.cart.totalQty %></span>
-                            <%}%>
-                    <% } %>
+                                <% if(session.cart.totalQty <= 0) { %>
+                                <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
+                                <% }else {%>
+                                <span class="badge float-badge"><%= session.cart.totalQty %></span>
+                                <%}%>
+                    <%}%>
                             </button>
-                            </a>
+                        </a>
                     </div>
                 </div>
 
@@ -75,31 +75,31 @@
     </nav>
     <!-- MOBILE -->
     <div class="btn-store-mobile">
-        <div class="form-group category text-center">
+        <!-- <div class="form-group category text-center">
             <select class="form-control" id="active" name="active">
                 <option value="All" selected>All</option>
-                <%if(category.length >= 0){%>
-                <%category.forEach(function(item){%>
-                <option value=" <%=item.category%>"> <%=item.category%></option>
-                <%})%>
-                <%}else{%>
+                <%#if(category.length >= 0){%>
+                <%#category.forEach(function(item){%>
+                <option value=" <%#=item.category%>"> <%#=item.category%></option>
+                <%#})%>
+                <%#}else{%>
                 <option value="" selected disabled>Category</option>
-                <%}%>                           
+                <%#}%>                           
             </select>   
-        </div>
+        </div> -->
         <div class="cart_btn">
             <a href="/cart">
                 <button type="button" class="btn" id="cart_icon">
                     <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:25px"></i>
                     <% if(session.cart) { %>
-                <% if(session.cart.totalQty <= 0) { %>
-                <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
-                <% }else {%>
-                <span class="badge float-badge"><%= session.cart.totalQty %></span>
-                <%}%>
+                    <% if(session.cart.totalQty <= 0) { %>
+                    <span class="badge float-badge"><%= session.cart.totalQty = 0 %></span>
+                    <% }else {%>
+                    <span class="badge float-badge"><%= session.cart.totalQty %></span>
+                    <%}%>
                     <% } %>
                 </button>
-                </a>
+            </a>
         </div>
 
     </div>
@@ -154,10 +154,10 @@
                     <div class="shop-item-details">
                         <input type="text" name="name" class="shop-item-name" value="<%= item.name %>">
                         <span class="shop-item-price">₱<%= item.price %>.00</span>
-                        <div class="p-s">
+                        <!-- <div class="p-s">
                             <span class="shop-item-stocks">Stocks:</span>
                             <span style="color: black; font-size: 15px; font-weight: 600;"><%= item.stocks %></span>
-                        </div>
+                        </div> -->
                         <div class="p-s">
                             <input type="number" class="cart-stocks form-control" min='1' max="<%= item.stocks %>"
                                 value='1' name="quantity">
