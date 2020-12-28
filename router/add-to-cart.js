@@ -55,12 +55,32 @@ router.get('/remove/:id',async(req,res,next)=>{
   return res.redirect('/cart')
 })
 
-router.post('/place-order',(req,res)=>{
+router.post('/place-order',async(req,res)=>{
+  // console.log(req.body.productQty[1])
    var cart = new Cart(req.session.cart ? req.session.cart : {})
   //  var min_stocks = products.find({stocks:'100'})
-  //  console.log(req.body)
   if(req.body.name != "" && req.body.email != "" && req.body.contact != "" && req.body.address != ""){
-  var order = new Orders({
+  for(let i =0; i < Object.entries(req.session.cart.items).length;i++){
+  // console.log(-req.body.productQty[i]/2)
+   await products.findOneAndUpdate(
+     {
+     name:req.body.productName[i].trim()
+     },
+      {  
+        "$inc":{
+          "stocks":-req.body.productQty[i]/2
+        }
+      },(error, result) =>{ 
+        if(error){
+           console.log(error)
+        }
+        console.log(result)
+       
+      }
+   )
+  }
+
+    var order = new Orders({
     cart:cart,
     name:req.body.name,
     email:req.body.email,

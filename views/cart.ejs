@@ -43,7 +43,7 @@
 
                                     <div class="p-s" style="width: 80%; margin: auto;">
                                         <input type="text" class="p form-control" name="productName"
-                                            value="<%= items.item.name%>">
+                                            value="<%=items.item.name%>">
 
                                         <input type="text" class="p form-control" style="text-align:center ;"
                                             name="productQty" value="<%= items.qty %>">
@@ -161,7 +161,13 @@
                                                             <i class="fa fa-minus" style="margin-right:1rem;"
                                                                 id="minusID"></i>
                                                         </a>
-                                                        <%= items.qty %>
+                                                        <input type="text" value="<%= items.qty %>" style=" border: transparent;
+                                                            background: transparent;
+                                                            cursor: default;
+                                                            pointer-events: none;
+                                                            width: 20px;
+                                                            text-align: center;">
+
                                                         <a href="/store/addOne/<%=items.item._id%>">
                                                             <i class="fa fa-plus" style="margin-left:1rem;"
                                                                 id="plusID"></i>

@@ -107,7 +107,7 @@ body{
    /* justify-content: center; */
    position: fixed;
    top: 1rem;
-   right:0;
+   right:1.5rem;
     /* background: green; */
 }
 .navbar-collapse{
@@ -231,16 +231,16 @@ body{
      display: none;
  }
 @media screen and (min-width: 180px) and (max-width: 875px) and (max-height: 900px){
-    .btn-store{
+    /* .btn-store{
         display: none;
-    }
+    } */
     .navbar{
         position: absolute;
     }
     .btn-store-mobile{
-        display:grid;
-        /* grid-template-columns:1fr 1fr; */
-        grid-template-columns:1fr;
+        display: none;
+        /* display:grid;       
+        grid-template-columns:1fr; */
         background: white;
         padding: 0%;
         width: 100%;
@@ -290,9 +290,9 @@ body{
         display: none;
     }
     .cart_btn{
-        width: 100%;
-       margin: auto;
-
+       position: fixed;
+      
+       
        
     }
     .alert{
